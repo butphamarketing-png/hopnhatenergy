@@ -306,24 +306,36 @@ a {
 }
 
 @media (max-width: 900px) {
+  html, body {
+    height: auto;
+    min-height: 100%;
+  }
+
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
   .gateway {
     flex-direction: column;
-    height: 100dvh;
+    height: auto;
+    min-height: 0;
   }
 
   .gateway-panel {
-    flex: 1 1 auto !important;
+    flex: 0 0 auto !important;
+    min-height: 85dvh;
   }
 
   .gateway.is-hover-solar .gateway-panel--solar,
   .gateway.is-hover-led .gateway-panel--led,
   .gateway.is-hover-solar .gateway-panel--led,
   .gateway.is-hover-led .gateway-panel--solar {
-    flex: 1 1 auto !important;
+    flex: 0 0 auto !important;
   }
 
   .gateway-panel__content {
-    padding: 20px 20px 88px;
+    padding: 28px 20px 40px;
   }
 
   .gateway-panel__icon {
@@ -349,11 +361,12 @@ a {
   }
 
   .gateway-footer {
+    position: static;
     flex-wrap: wrap;
     justify-content: center;
     text-align: left;
     min-height: auto;
-    padding: 12px 16px;
+    padding: 16px;
     gap: 12px;
   }
 
