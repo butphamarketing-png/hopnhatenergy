@@ -1,0 +1,299 @@
+/* =========================================================
+   QA Polish — a11y, focus, card sync, UX finishing
+   Load LAST after responsive-harden.css
+   ========================================================= */
+
+/* ---------- Skip link ---------- */
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  z-index: 200;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transform: translateY(-140%);
+  transition: transform 0.25s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ---------- Focus visible (keyboard) ---------- */
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary) !important;
+  outline-offset: 3px !important;
+}
+
+.product-card__link:focus-visible,
+.project-card__link:focus-visible,
+.svc-card__link:focus-visible,
+.news-card__link:focus-visible,
+.contact-info__card:focus-within {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.services-dot:focus-visible,
+.news-dot:focus-visible,
+.services-nav-btn:focus-visible,
+.news-nav-btn:focus-visible {
+  outline: 2px solid var(--primary) !important;
+  outline-offset: 3px !important;
+}
+
+/* ---------- Equal-height cards via stretch ---------- */
+
+@media (min-width: 768px) {
+  .products-grid,
+  .projects-grid {
+    align-items: stretch !important;
+  }
+
+  .products-grid > li,
+  .projects-grid > li {
+    display: flex;
+    height: 100%;
+  }
+
+  .products-grid .product-card,
+  .projects-grid .project-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  .product-card__link,
+  .project-card__link,
+  .svc-card__link,
+  .news-card__link {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    height: 100%;
+  }
+
+  .product-card__body,
+  .project-card__body,
+  .svc-card__body,
+  .news-card__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Sync radius / shadow language */
+  .product-card,
+  .project-card,
+  .svc-card,
+  .news-card {
+    border-radius: 16px !important;
+    border: 1px solid rgba(17, 24, 39, 0.06);
+    box-shadow: 0 10px 28px rgba(17, 24, 39, 0.05);
+  }
+
+  .product-card.is-in:hover,
+  .project-card.is-in:hover,
+  .svc-card:hover,
+  .news-card.is-in:hover {
+    box-shadow: 0 18px 42px rgba(17, 24, 39, 0.1);
+  }
+}
+
+/* ---------- Button system sync ---------- */
+
+.about-cta,
+.products-all,
+.projects-all,
+.services-all,
+.news-all,
+.contact-form__submit,
+.btn-primary,
+.hero-actions .btn-primary {
+  border-radius: 12px !important;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition:
+    transform 0.28s var(--ease-out),
+    box-shadow 0.28s ease,
+    background 0.28s ease,
+    color 0.28s ease,
+    border-color 0.28s ease !important;
+}
+
+.about-cta:hover,
+.products-all:hover,
+.projects-all:hover,
+.services-all:hover,
+.news-all:hover,
+.contact-form__submit:hover,
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.about-cta:active,
+.products-all:active,
+.projects-all:active,
+.services-all:active,
+.news-all:active,
+.contact-form__submit:active,
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ---------- Link UX ---------- */
+
+a[href],
+button,
+.product-card__link,
+.project-card__link,
+.svc-card__link,
+.news-card__link,
+.services-dot,
+.news-dot,
+.services-nav-btn,
+.news-nav-btn {
+  cursor: pointer;
+}
+
+a[aria-disabled="true"],
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+/* ---------- Form UX polish ---------- */
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #9CA3AF;
+}
+
+.contact-form select:invalid {
+  color: #9CA3AF;
+}
+
+.contact-form__field.is-invalid .contact-form__error {
+  display: block;
+}
+
+.contact-success {
+  animation: qaFadeIn 0.35s var(--ease-out) both;
+}
+
+@keyframes qaFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Image safety ---------- */
+
+.product-card__media,
+.project-card__media,
+.svc-card__media,
+.news-card__media,
+.about-media {
+  overflow: hidden;
+  background: #eef1f4;
+}
+
+.product-card__media {
+  background: #fff;
+}
+
+.project-card__media img,
+.svc-card__media img,
+.news-card__media img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.product-card__media img {
+  object-fit: contain;
+  object-position: center;
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Ultra-wide breathing room ---------- */
+
+@media (min-width: 2560px) {
+  .about-inner,
+  .products-inner,
+  .projects-inner,
+  .services-inner,
+  .news-inner,
+  .contact-inner,
+  .site-footer__inner {
+    max-width: 1600px;
+  }
+}
+
+/* ---------- Landscape phones: allow scroll, compact header ---------- */
+
+@media (max-height: 450px) and (orientation: landscape) {
+  .fp-section:not(.hero) {
+    overflow-y: auto !important;
+  }
+
+  .about-inner,
+  .products-inner,
+  .projects-inner,
+  .services-inner,
+  .news-inner,
+  .contact-inner {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding-top: calc(var(--header-h-compact, 72px) + 8px) !important;
+    padding-bottom: 24px !important;
+  }
+
+  .site-header.is-compact .header-industry {
+    display: none !important;
+  }
+}
+
+/* ---------- Selection color brand ---------- */
+
+::selection {
+  background: rgba(249, 115, 22, 0.22);
+  color: #111827;
+}
+
+[data-theme="led"] ::selection {
+  background: rgba(15, 61, 145, 0.2);
+}

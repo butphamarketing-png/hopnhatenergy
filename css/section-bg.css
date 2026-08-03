@@ -1,0 +1,456 @@
+/* =========================================================
+   Background Design System — multi-layer atmospheres
+   Layers: media → gradient → overlay → pattern → noise → tint → content
+   Content stays readable; backgrounds only set depth & mood
+   ========================================================= */
+
+@keyframes sectionEnterFade {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* ---------- Shell ---------- */
+
+.section-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Layer 1 — Photo */
+.section-bg__media {
+  position: absolute;
+  inset: 0;
+  background-color: #e8eef2;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  transform: scale(1.04) translate3d(0, 0, 0);
+  transform-origin: center center;
+  filter: none;
+  will-change: transform;
+  transition: transform 1.4s var(--ease-out), opacity 0.9s var(--ease-out);
+}
+
+.section-bg--soft .section-bg__media {
+  filter: blur(2.5px) saturate(0.88) brightness(1.04);
+  transform: scale(1.08);
+  opacity: 0.55;
+}
+
+/* Light parallax (~10–15%) when section is active */
+.fp-section.is-revealed .section-bg__media , .fp-section.is-active .section-bg__media {
+  transform: scale(1.1) translate3d(0, -1.5%, 0);
+  transition: transform 18s linear, opacity 0.9s var(--ease-out);
+}
+
+.fp-section.is-revealed .section-bg--soft .section-bg__media , .fp-section.is-active .section-bg--soft .section-bg__media {
+  transform: scale(1.12) translate3d(0, -1.2%, 0);
+  opacity: 0.6;
+}
+
+/* Layer 2 — Directional gradient (mood) */
+.section-bg__gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Layer 3 — Wash overlay */
+.section-bg__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgba(255, 255, 255, var(--section-overlay, 0.92));
+  pointer-events: none;
+}
+
+/* Layer 4 — Pattern (1–3% opacity) */
+.section-bg__pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  opacity: 0.022;
+  pointer-events: none;
+  background-repeat: repeat;
+}
+
+/* Layer 5 — Film noise */
+.section-bg__noise {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  opacity: 0.035;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* Soft brand tint */
+.section-bg__tint {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 65% 45% at 90% 6%, rgba(var(--primary-rgb), 0.04), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 6% 94%, rgba(17, 24, 39, 0.03), transparent 50%);
+}
+
+/* Soft edge blend between chapters */
+.section-bg__edge {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(250, 250, 250, 0.5) 0%, transparent 64px),
+    linear-gradient(to top, rgba(250, 250, 250, 0.45) 0%, transparent 72px);
+  background-repeat: no-repeat;
+  background-position: top, bottom;
+  background-size: 100% 64px, 100% 72px;
+  opacity: 0.65;
+}
+
+/* BG leads entrance */
+.fp-section:not(.hero) .section-bg {
+  opacity: 0;
+  transform: translate3d(0, 10px, 0);
+  transition:
+    opacity 0.95s var(--ease-out),
+    transform 1.1s var(--ease-out);
+}
+
+.fp-section:not(.hero).is-revealed .section-bg,
+.fp-section:not(.hero).is-active .section-bg {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ---------- Tones (unique overlay per section) ---------- */
+
+/* §2 About — white + L→R readability wash */
+.section-bg--tone-white .section-bg__overlay {
+  background: rgba(255, 255, 255, var(--section-overlay, 0.92));
+}
+
+.section-bg--tone-white .section-bg__gradient {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(255, 255, 255, 0.28) 42%,
+    rgba(255, 255, 255, 0) 78%
+  );
+}
+
+/* §3 Products — warm cream */
+.section-bg--tone-cream .section-bg__overlay {
+  background: rgba(252, 250, 246, var(--section-overlay, 0.95));
+}
+
+.section-bg--tone-cream .section-bg__gradient {
+  background: linear-gradient(
+    160deg,
+    rgba(249, 115, 22, 0.035) 0%,
+    transparent 45%,
+    rgba(17, 24, 39, 0.02) 100%
+  );
+}
+
+/* §4 Projects — clean white + soft light */
+.section-bg--tone-light .section-bg__overlay {
+  background: rgba(255, 255, 255, var(--section-overlay, 0.9));
+}
+
+.section-bg--tone-light .section-bg__gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    transparent 40%,
+    rgba(248, 250, 252, 0.45) 100%
+  );
+}
+
+/* §5 Services — white gradient wash */
+.section-bg--tone-mist-white .section-bg__overlay {
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, calc(var(--section-overlay, 0.92) + 0.02)) 0%,
+    rgba(255, 255, 255, var(--section-overlay, 0.92)) 50%,
+    rgba(248, 250, 252, calc(var(--section-overlay, 0.92) - 0.02)) 100%
+  );
+}
+
+.section-bg--tone-mist-white .section-bg__gradient {
+  background: linear-gradient(
+    105deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    transparent 55%
+  );
+}
+
+/* §6 News — very light gray */
+.section-bg--tone-mist .section-bg__overlay {
+  background: rgba(246, 247, 249, var(--section-overlay, 0.95));
+}
+
+.section-bg--tone-mist .section-bg__gradient {
+  background: linear-gradient(
+    200deg,
+    rgba(17, 24, 39, 0.03) 0%,
+    transparent 50%
+  );
+}
+
+/* ---------- Patterns (subtle 1–3%) ---------- */
+
+.section-bg--pattern-solar-grid .section-bg__pattern {
+  opacity: 0.02;
+  background-image:
+    linear-gradient(rgba(17, 24, 39, 0.55) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 24, 39, 0.55) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.section-bg--pattern-cell .section-bg__pattern {
+  opacity: 0.025;
+  background-image:
+    linear-gradient(rgba(17, 24, 39, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 24, 39, 0.5) 1px, transparent 1px),
+    linear-gradient(rgba(249, 115, 22, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(249, 115, 22, 0.35) 1px, transparent 1px);
+  background-size: 28px 28px, 28px 28px, 112px 112px, 112px 112px;
+}
+
+.section-bg--pattern-energy .section-bg__pattern {
+  opacity: 0.018;
+  background-image: repeating-linear-gradient(
+    -28deg,
+    transparent 0,
+    transparent 18px,
+    rgba(17, 24, 39, 0.55) 18px,
+    rgba(17, 24, 39, 0.55) 19px
+  );
+}
+
+.section-bg--pattern-blueprint .section-bg__pattern {
+  opacity: 0.022;
+  background-image:
+    linear-gradient(rgba(15, 61, 145, 0.45) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 61, 145, 0.45) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+[data-theme="solar"] .section-bg--pattern-blueprint .section-bg__pattern {
+  background-image:
+    linear-gradient(rgba(17, 24, 39, 0.45) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 24, 39, 0.45) 1px, transparent 1px);
+}
+
+.section-bg--pattern-hexagon .section-bg__pattern {
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 28 50'%3E%3Cpath fill='none' stroke='%23111827' stroke-width='0.6' d='M14 0l14 8v16l-14 8L0 24V8z'/%3E%3C/svg%3E");
+  background-size: 56px 100px;
+}
+
+/* Base under soft sections */
+.fp-section[data-theme="light"] {
+  background-color: #f7f8fa;
+}
+
+.fp-section.about:has(.section-bg),
+.fp-section.products:has(.section-bg),
+.fp-section.projects:has(.section-bg),
+.fp-section.services:has(.section-bg),
+.fp-section.news:has(.section-bg) {
+  background-color: #f7f8fa;
+}
+
+.fp-section:has(.section-bg)::before,
+.fp-section:has(.section-bg)::after {
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.about-inner,
+.products-inner,
+.projects-inner,
+.services-inner,
+.news-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Soften only About atmospheric photo — other sections unchanged */
+.fp-section.about .section-bg--soft .section-bg__media {
+  opacity: 0.32;
+  filter: blur(3.5px) saturate(0.85) brightness(1.06);
+}
+
+.fp-section.about.is-active .section-bg--soft .section-bg__media {
+  opacity: 0.36;
+}
+
+/* ---------- Contact — multi-layer depth handled in contact.css ---------- */
+
+.fp-section.contact .section-bg__edge {
+  display: none;
+}
+
+.contact-bg__gradient {
+  display: none;
+}
+
+/* ---------- Footer — gradient + noise only ---------- */
+
+.footer-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.footer-bg__gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 20% 0%, rgba(var(--primary-rgb), 0.12), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 90% 100%, rgba(255, 255, 255, 0.04), transparent 50%);
+}
+
+.footer-bg__noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.045;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+.site-footer__inner {
+  position: relative;
+  z-index: 1;
+}
+
+[data-theme="solar"] .site-footer {
+  background: linear-gradient(165deg, #1F2937 0%, #111827 48%, #0B1220 100%);
+}
+
+[data-theme="led"] .site-footer {
+  background: linear-gradient(165deg, #0F274F 0%, #081C3A 50%, #050e1c 100%);
+}
+
+/*
+ * Entrance order (after background ~0.2s):
+ * Sub (label) → Heading → Paragraph → Image → Icons → Button
+ */
+.fp-section.is-revealed .about-label, .fp-section.is-active .about-label,
+.fp-section.is-revealed .products-label, .fp-section.is-active .products-label,
+.fp-section.is-revealed .projects-label, .fp-section.is-active .projects-label,
+.fp-section.is-revealed .services-label , .fp-section.is-active .services-label {
+  animation: sectionEnterFade 0.55s var(--ease-out) 0.22s both;
+}
+
+.fp-section.is-revealed .about-title, .fp-section.is-active .about-title,
+.fp-section.is-revealed .products-title, .fp-section.is-active .products-title,
+.fp-section.is-revealed .projects-title, .fp-section.is-active .projects-title,
+.fp-section.is-revealed .services-title , .fp-section.is-active .services-title {
+  animation: sectionEnterFade 0.65s var(--ease-out) 0.38s both;
+}
+
+.fp-section.is-revealed .about-desc, .fp-section.is-active .about-desc,
+.fp-section.is-revealed .products-desc, .fp-section.is-active .products-desc,
+.fp-section.is-revealed .projects-desc, .fp-section.is-active .projects-desc,
+.fp-section.is-revealed .services-desc , .fp-section.is-active .services-desc {
+  animation: sectionEnterFade 0.6s var(--ease-out) 0.54s both;
+}
+
+.fp-section.is-revealed .about-media , .fp-section.is-active .about-media {
+  animation: sectionEnterFade 0.75s var(--ease-out) 0.68s both;
+}
+
+.fp-section.is-revealed .about-feature:nth-child(1), .fp-section.is-active .about-feature:nth-child(1),
+.fp-section.is-revealed .products-grid > li:nth-child(1) .product-card, .fp-section.is-active .products-grid > li:nth-child(1) .product-card,
+.fp-section.is-revealed .project-card:nth-child(1) , .fp-section.is-active .project-card:nth-child(1) {
+  animation: sectionEnterFade 0.55s var(--ease-out) 0.8s both;
+}
+
+.fp-section.is-revealed .about-feature:nth-child(2), .fp-section.is-active .about-feature:nth-child(2),
+.fp-section.is-revealed .products-grid > li:nth-child(2) .product-card, .fp-section.is-active .products-grid > li:nth-child(2) .product-card,
+.fp-section.is-revealed .project-card:nth-child(2) , .fp-section.is-active .project-card:nth-child(2) {
+  animation: sectionEnterFade 0.55s var(--ease-out) 0.92s both;
+}
+
+.fp-section.is-revealed .about-feature:nth-child(3), .fp-section.is-active .about-feature:nth-child(3),
+.fp-section.is-revealed .products-grid > li:nth-child(3) .product-card, .fp-section.is-active .products-grid > li:nth-child(3) .product-card,
+.fp-section.is-revealed .project-card:nth-child(3) , .fp-section.is-active .project-card:nth-child(3) {
+  animation: sectionEnterFade 0.55s var(--ease-out) 1.04s both;
+}
+
+.fp-section.is-revealed .about-feature:nth-child(4), .fp-section.is-active .about-feature:nth-child(4),
+.fp-section.is-revealed .products-grid > li:nth-child(4) .product-card, .fp-section.is-active .products-grid > li:nth-child(4) .product-card,
+.fp-section.is-revealed .project-card:nth-child(4) , .fp-section.is-active .project-card:nth-child(4) {
+  animation: sectionEnterFade 0.55s var(--ease-out) 1.16s both;
+}
+
+.fp-section.is-revealed .products-grid > li:nth-child(5) .product-card , .fp-section.is-active .products-grid > li:nth-child(5) .product-card {
+  animation: sectionEnterFade 0.55s var(--ease-out) 1.28s both;
+}
+
+.fp-section.is-revealed .products-grid > li:nth-child(6) .product-card , .fp-section.is-active .products-grid > li:nth-child(6) .product-card {
+  animation: sectionEnterFade 0.55s var(--ease-out) 1.4s both;
+}
+
+.fp-section.is-revealed .about-cta, .fp-section.is-active .about-cta,
+.fp-section.is-revealed .products-foot, .fp-section.is-active .products-foot,
+.fp-section.is-revealed .projects-foot, .fp-section.is-active .projects-foot,
+.fp-section.is-revealed .products-all, .fp-section.is-active .products-all,
+.fp-section.is-revealed .projects-all, .fp-section.is-active .projects-all,
+.fp-section.is-revealed .services-cta , .fp-section.is-active .services-cta {
+  animation: sectionEnterFade 0.55s var(--ease-out) 1.28s both;
+}
+
+.fp-section.is-revealed .footer-col:nth-child(1) , .fp-section.is-active .footer-col:nth-child(1) { animation: sectionEnterFade 0.5s var(--ease-out) 0.08s both; }
+.fp-section.is-revealed .footer-col:nth-child(2) , .fp-section.is-active .footer-col:nth-child(2) { animation: sectionEnterFade 0.5s var(--ease-out) 0.16s both; }
+.fp-section.is-revealed .footer-col:nth-child(3) , .fp-section.is-active .footer-col:nth-child(3) { animation: sectionEnterFade 0.5s var(--ease-out) 0.24s both; }
+.fp-section.is-revealed .footer-col:nth-child(4) , .fp-section.is-active .footer-col:nth-child(4) { animation: sectionEnterFade 0.5s var(--ease-out) 0.32s both; }
+.fp-section.is-revealed .site-footer__bottom , .fp-section.is-active .site-footer__bottom { animation: sectionEnterFade 0.5s var(--ease-out) 0.42s both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .section-bg__media,
+  .fp-section.is-revealed .section-bg__media, .fp-section.is-active .section-bg__media,
+  .fp-section:not(.hero) .section-bg,
+  .contact-bg__img,
+  .fp-section.contact.is-active .contact-bg__img,
+  .fp-section.is-revealed .about-label, .fp-section.is-active .about-label,
+  .fp-section.is-revealed .products-label, .fp-section.is-active .products-label,
+  .fp-section.is-revealed .projects-label, .fp-section.is-active .projects-label,
+  .fp-section.is-revealed .services-label, .fp-section.is-active .services-label,
+  .fp-section.is-revealed .about-title, .fp-section.is-active .about-title,
+  .fp-section.is-revealed .products-title, .fp-section.is-active .products-title,
+  .fp-section.is-revealed .projects-title, .fp-section.is-active .projects-title,
+  .fp-section.is-revealed .services-title, .fp-section.is-active .services-title,
+  .fp-section.is-revealed .about-desc, .fp-section.is-active .about-desc,
+  .fp-section.is-revealed .about-cta, .fp-section.is-active .about-cta,
+  .fp-section.is-revealed .product-card, .fp-section.is-active .product-card,
+  .fp-section.is-revealed .project-card, .fp-section.is-active .project-card,
+  .fp-section.is-revealed .service-card, .fp-section.is-active .service-card,
+  .fp-section.is-revealed .footer-col , .fp-section.is-active .footer-col {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+  }
+}

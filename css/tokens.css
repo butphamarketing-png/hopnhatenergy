@@ -1,0 +1,60 @@
+/* =========================================================
+   Design tokens — shared by /solar and /den-led
+   Theme overrides via [data-theme]
+   ========================================================= */
+
+:root,
+[data-theme="solar"] {
+  --primary: #F97316;
+  --primary-hover: #ea6a0c;
+  --primary-rgb: 249, 115, 22;
+  --secondary: #111827;
+  --accent: #F97316;
+  --dark: #111827;
+  --darker: #0B1220;
+  --soft: #F8F8F8;
+  --white: #FFFFFF;
+  --bg-tint: #fffaf5;
+  --bg-tint-mid: #fffaf6;
+  --flare: rgba(249, 115, 22, 0.18);
+  --font-sans: "Be Vietnam Pro", system-ui, sans-serif;
+  --header-h: 88px;
+  --header-h-compact: 72px;
+  --radius-card: 16px;
+  --radius-btn: 10px;
+  --radius-media: 20px;
+  --shadow-soft: 0 8px 24px rgba(17, 24, 39, 0.05);
+  --shadow-hover: 0 12px 28px rgba(17, 24, 39, 0.08);
+  --shadow-lift: 0 18px 40px rgba(17, 24, 39, 0.08);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: 0.35s var(--ease-out);
+  --dur-fast: 0.35s;
+  --dur-text: 0.7s;
+  --dur-media: 0.9s;
+  --dur-section: 1s;
+  --pad-section-x: clamp(20px, 4vw, 56px);
+  --pad-section-left: clamp(20px, 7vw, 110px);
+  --container-max: 1480px;
+}
+
+[data-theme="led"] {
+  --primary: #0B3D91;
+  --primary-hover: #082e6e;
+  --primary-rgb: 11, 61, 145;
+  --secondary: #081C3A;
+  --accent: #22D3EE;
+  --dark: #081C3A;
+  --darker: #050e1c;
+  --bg-tint: #f5f8fc;
+  --bg-tint-mid: #f0f5fb;
+  --flare: rgba(34, 211, 238, 0.16);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="vi" data-theme="solar" data-solar-base="../../">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Chi tiết sản phẩm điện mặt trời — Solar Miền Nam." />
+  <title>Sản phẩm | Solar Miền Nam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="../../../js/themes/solar.js"></script>
+  <link rel="stylesheet" href="../../../css/tokens.css" />
+  <link rel="stylesheet" href="../../../css/products-pages.css" />
+  <link rel="stylesheet" href="../../../css/cart.css" />
+</head>
+<body>
+  <header class="pp-header">
+    <a href="../../" class="pp-back">← Trang chủ</a>
+    <p class="pp-brand">Solar <span>Miền Nam</span></p>
+    <div class="pp-header__cart" data-cart-mount="light"></div>
+  </header>
+
+  <main class="pp-wrap">
+    <p class="pp-label">Sản phẩm</p>
+    <p style="margin:8px 0 0"><a class="pp-back" href="../../danh-muc-san-pham/">Danh mục sản phẩm</a></p>
+    <div class="pp-detail" id="pp-detail"></div>
+  </main>
+
+  <script src="../../../js/cart.js"></script>
+  <script src="../../../js/product-pages.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      window.SolarCart && window.SolarCart.init();
+      window.SolarProductPages && window.SolarProductPages.mountDetail();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+node_modules/
+package-lock.json
+scripts/layout-audit-report.json
+scripts/full-qa-report.json

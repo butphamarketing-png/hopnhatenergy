@@ -1,0 +1,388 @@
+/**
+ * Landing gateway — split choose Solar / LED
+ */
+@import url('./tokens.css');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+  background: var(--darker);
+  color: var(--white);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.gateway {
+  display: flex;
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+  position: relative;
+}
+
+.gateway-panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  min-height: 0;
+  transition: flex 0.7s var(--ease-out);
+  flex: 1 1 50%;
+}
+
+.gateway.is-hover-solar .gateway-panel--solar,
+.gateway.is-hover-led .gateway-panel--led {
+  flex: 1.18 1 0;
+}
+
+.gateway.is-hover-solar .gateway-panel--led,
+.gateway.is-hover-led .gateway-panel--solar {
+  flex: 0.82 1 0;
+}
+
+.gateway-panel__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.gateway-panel__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.06);
+  filter: brightness(0.82);
+  transition: transform 1s var(--ease-out), filter 0.7s var(--ease-out);
+  will-change: transform, filter;
+}
+
+.gateway-panel__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(11, 18, 32, 0.58);
+  transition: background 0.7s var(--ease-out);
+}
+
+.gateway-panel.is-active .gateway-panel__bg img,
+.gateway-panel:hover .gateway-panel__bg img {
+  transform: scale(1.12);
+  filter: brightness(1.05);
+}
+
+.gateway-panel.is-active .gateway-panel__overlay,
+.gateway-panel:hover .gateway-panel__overlay {
+  background: rgba(11, 18, 32, 0.4);
+}
+
+.gateway.is-hover-solar .gateway-panel--led .gateway-panel__overlay,
+.gateway.is-hover-led .gateway-panel--solar .gateway-panel__overlay {
+  background: rgba(11, 18, 32, 0.72);
+}
+
+.gateway.is-hover-solar .gateway-panel--led .gateway-panel__bg img,
+.gateway.is-hover-led .gateway-panel--solar .gateway-panel__bg img {
+  filter: brightness(0.45);
+  transform: scale(1.04);
+}
+
+.gateway-panel__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px 28px 100px;
+  max-width: 460px;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: gatewayIn 0.9s var(--ease-out) forwards;
+}
+
+.gateway-panel--led .gateway-panel__content {
+  animation-delay: 0.12s;
+}
+
+.gateway-panel__icon {
+  width: 64px;
+  height: 64px;
+  border: 1.5px solid rgba(232, 185, 35, 0.75);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+  margin-bottom: 28px;
+  transition: transform 0.5s var(--ease-out), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gateway-panel:hover .gateway-panel__icon,
+.gateway-panel.is-active .gateway-panel__icon {
+  transform: scale(1.06);
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 6px rgba(232, 185, 35, 0.12);
+}
+
+.gateway-panel__label {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.gateway-panel__title {
+  margin: 0;
+  font-size: clamp(1.55rem, 2.6vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+}
+
+.gateway-panel__desc {
+  margin: 18px 0 0;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.gateway-panel__btn {
+  margin-top: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 48px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--accent-gold);
+  color: var(--darker);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: transform 0.4s var(--ease-out), background 0.3s ease, box-shadow 0.4s ease;
+  box-shadow: 0 10px 30px rgba(232, 185, 35, 0.25);
+}
+
+.gateway-panel__btn svg {
+  transition: transform 0.35s var(--ease-out);
+}
+
+.gateway-panel:hover .gateway-panel__btn,
+.gateway-panel.is-active .gateway-panel__btn {
+  transform: translateY(-3px) scale(1.03);
+  background: #f0c43a;
+  box-shadow: 0 16px 40px rgba(232, 185, 35, 0.4);
+}
+
+.gateway-panel:hover .gateway-panel__btn svg,
+.gateway-panel.is-active .gateway-panel__btn svg {
+  transform: translateX(4px);
+}
+
+/* Footer bar */
+.gateway-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 72px;
+  padding: 14px clamp(20px, 4vw, 48px);
+  background: rgba(11, 18, 32, 0.92);
+  border-top: 1px solid rgba(232, 185, 35, 0.35);
+  backdrop-filter: blur(12px);
+}
+
+.gateway-footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.gateway-footer__logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.gateway-footer__name {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.gateway-footer__tag {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.gateway-footer__meta {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 4vw, 48px);
+  flex-wrap: nowrap;
+}
+
+.gateway-footer__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.gateway-footer__item-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 185, 35, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+  flex-shrink: 0;
+}
+
+.gateway-footer__item-text {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.gateway-footer__item-label {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+.gateway-footer__item-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-gold);
+}
+
+@keyframes gatewayIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .gateway {
+    flex-direction: column;
+    height: 100dvh;
+  }
+
+  .gateway-panel {
+    flex: 1 1 auto !important;
+  }
+
+  .gateway.is-hover-solar .gateway-panel--solar,
+  .gateway.is-hover-led .gateway-panel--led,
+  .gateway.is-hover-solar .gateway-panel--led,
+  .gateway.is-hover-led .gateway-panel--solar {
+    flex: 1 1 auto !important;
+  }
+
+  .gateway-panel__content {
+    padding: 20px 20px 88px;
+  }
+
+  .gateway-panel__icon {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 16px;
+  }
+
+  .gateway-panel__title {
+    font-size: 1.35rem;
+  }
+
+  .gateway-panel__desc {
+    font-size: 13px;
+    margin-top: 12px;
+  }
+
+  .gateway-panel__btn {
+    margin-top: 20px;
+    height: 42px;
+    padding: 0 22px;
+    font-size: 12px;
+  }
+
+  .gateway-footer {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: left;
+    min-height: auto;
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  .gateway-footer__brand {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .gateway-footer__meta {
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .gateway-footer__item-text {
+    gap: 6px;
+  }
+
+  .gateway-footer__item-value {
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

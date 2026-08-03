@@ -1,0 +1,621 @@
+/* =========================================================
+   Responsive Harden — cross-breakpoint layout safety net
+   Load LAST after viewport-fit.css
+   Prevents overflow, stacking, clipping, uneven cards
+   ========================================================= */
+
+/* ---------- Global overflow & box safety ---------- */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.fullpage,
+.fp-section,
+.fp-section * {
+  max-width: 100%;
+}
+
+.fp-section img,
+.fp-section svg,
+.fp-section video,
+.fp-section iframe {
+  max-width: 100%;
+}
+
+.fp-section img {
+  height: auto;
+  object-fit: cover;
+}
+
+.hero-slide__img,
+.about-media__img,
+.product-card__media img,
+.project-card__media img,
+.svc-card__media img,
+.news-card__media img,
+.contact-bg__img {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Decorative layers must never cause horizontal scroll */
+.contact-bg,
+.section-bg,
+.hero-slideshow,
+.hero,
+.fp-section.contact,
+.fp-section.about,
+.fp-section.products,
+.fp-section.projects,
+.fp-section.services,
+.fp-section.news {
+  overflow-x: hidden !important;
+}
+
+.section-bg,
+.contact-bg {
+  contain: paint;
+  overflow: hidden !important;
+}
+
+.section-bg__media {
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  transform-origin: center center;
+}
+
+.contact-bg__img {
+  inset: 0;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  transform-origin: center center;
+}
+
+.contact-bg__blur,
+.contact-bg__glow,
+.contact-bg__sun,
+.contact-bg__flare,
+.contact-glass__shine {
+  pointer-events: none;
+}
+
+/* Soften entrance: no horizontal translate (prevents spill before animate-in) */
+.services-copy,
+.news-copy {
+  transform: translateY(18px) !important;
+}
+
+.services.is-copy-in .services-copy,
+.news.is-head-desc .news-copy,
+.news.is-cta-in .news-copy {
+  transform: translateY(0) !important;
+}
+
+.services-slider,
+.news-slider {
+  transform: none !important;
+  opacity: 1;
+}
+
+.services.is-slider-in .services-slider,
+.news.is-slider-in .news-slider {
+  opacity: 1;
+  transform: none !important;
+}
+
+.contact-panel {
+  transform: translateY(20px) !important;
+}
+
+.contact.is-panel-in .contact-panel {
+  transform: translateY(0) !important;
+}
+
+/* ---------- Shared card rhythm ---------- */
+
+.product-card,
+.project-card,
+.svc-card,
+.news-card {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.products-grid > li,
+.projects-grid > li,
+.news-slide,
+.svc-slide {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.product-card__name,
+.project-card__title,
+.svc-card__title,
+.news-card__title,
+.contact-info__value,
+.about-feature__title,
+.about-feature__text {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ---------- Header safety ---------- */
+
+.site-header {
+  width: 100%;
+  max-width: 100vw;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+.site-header .header-inner {
+  width: 100%;
+  max-width: 1600px;
+  box-sizing: border-box;
+  gap: 8px;
+}
+
+.site-header.is-compact .header-industry {
+  max-width: min(42vw, 280px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.site-header:not(.is-compact) .header-nav {
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.site-header:not(.is-compact) .nav-link {
+  white-space: nowrap;
+}
+
+.side-menu {
+  z-index: 120;
+}
+
+.side-menu-overlay {
+  z-index: 110;
+}
+
+/* ---------- Ultra-wide (1600–2560) ---------- */
+
+@media (min-width: 1600px) {
+  .about-inner,
+  .products-inner,
+  .projects-inner,
+  .services-inner,
+  .news-inner,
+  .contact-inner,
+  .site-footer__inner {
+    max-width: 1480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-content__inner {
+    max-width: 880px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .about-inner,
+  .products-inner,
+  .projects-inner,
+  .services-inner,
+  .news-inner,
+  .contact-inner {
+    padding-left: clamp(72px, 6vw, 120px) !important;
+    padding-right: clamp(40px, 4vw, 64px) !important;
+  }
+}
+
+/* ---------- Laptop 1200–1440 ---------- */
+
+@media (min-width: 1200px) and (max-width: 1440px) {
+  .products-grid,
+  .projects-grid {
+    gap: 18px !important;
+  }
+
+  .services-inner,
+  .news-inner,
+  .contact-inner {
+    gap: 36px !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .products-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .product-card__media {
+    height: clamp(90px, 12vh, 130px) !important;
+  }
+
+  .project-card__media {
+    height: clamp(90px, 13vh, 140px) !important;
+  }
+
+  .site-header.is-compact .header-industry {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+  }
+}
+
+/* ---------- Tablet 768–1100 ---------- */
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .products-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  .services-inner,
+  .news-inner,
+  .contact-inner,
+  .about-inner {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .services-copy,
+  .news-copy,
+  .contact-glass {
+    max-width: 100%;
+  }
+
+  .contact-info {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .fp-section.about .about-media {
+    max-height: 38vh !important;
+    width: 100%;
+  }
+
+  .site-footer__grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 28px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 912px) {
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .products-grid > li:nth-child(n + 5) {
+    /* keep 6 cards but 2-col is fine */
+  }
+}
+
+/* ---------- Large phone / small tablet 576–767 ---------- */
+
+@media (max-width: 767px) {
+  .fp-section:not(.hero) {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  .about-inner,
+  .products-inner,
+  .projects-inner,
+  .services-inner,
+  .news-inner,
+  .contact-inner,
+  .site-footer__inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    overflow-x: hidden !important;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .product-card__media {
+    height: 120px !important;
+    padding: 10px !important;
+  }
+
+  .product-card__body {
+    padding: 10px 12px 12px !important;
+  }
+
+  .product-card__name {
+    font-size: 12px !important;
+  }
+
+  .project-card__media {
+    height: 180px !important;
+  }
+
+  .services-inner,
+  .news-inner,
+  .contact-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  .contact-glass,
+  .contact-form,
+  .contact-success {
+    width: 100%;
+    padding: 20px 16px !important;
+    border-radius: 20px !important;
+  }
+
+  .contact-info {
+    grid-template-columns: 1fr !important;
+  }
+
+  .contact-form__fields {
+    grid-template-columns: 1fr !important;
+  }
+
+  .contact-form__field--half {
+    grid-column: 1 / -1 !important;
+  }
+
+  .site-header.is-compact .header-inner {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .site-header.is-compact .header-industry {
+    font-size: 11px !important;
+    letter-spacing: 0.08em !important;
+    max-width: min(40vw, 160px) !important;
+  }
+
+  .site-header.is-compact .header-menu-toggle__label {
+    font-size: 11px;
+  }
+
+  .hero-content {
+    padding: calc(var(--header-h) + 20px) 16px 88px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(1.15rem, 6.2vw, 1.55rem) !important;
+  }
+
+  .hero-desc {
+    margin-top: 18px !important;
+    font-size: 13px !important;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .site-footer__grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .scroll-hint {
+    display: none !important;
+  }
+}
+
+/* ---------- Phones 414 / 390 / 375 ---------- */
+
+@media (max-width: 430px) {
+  .products-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .fp-section.about .about-features {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px 10px !important;
+  }
+
+  .fp-section.about .about-feature__icon {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .fp-section.about .about-feature__title {
+    font-size: 12px !important;
+  }
+
+  .about-cta,
+  .products-all,
+  .projects-all,
+  .services-all,
+  .news-all,
+  .contact-form__submit {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ---------- Tiny phones 320–360 ---------- */
+
+@media (max-width: 360px) {
+  .products-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .fp-section.about .about-features {
+    grid-template-columns: 1fr !important;
+  }
+
+  .site-header.is-compact .header-industry {
+    display: none !important;
+  }
+
+  .site-header.is-compact .header-inner {
+    grid-template-columns: auto 1fr !important;
+  }
+
+  .hero-title {
+    font-size: 1.05rem !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .contact-social a {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+/* ---------- Buttons consistency ---------- */
+
+@media (min-width: 768px) {
+  .about-cta,
+  .products-all,
+  .projects-all,
+  .services-all,
+  .news-all,
+  .contact-form__submit,
+  .btn {
+    white-space: nowrap;
+  }
+}
+
+.about-cta,
+.products-all,
+.projects-all,
+.services-all,
+.news-all {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* ---------- Form inputs never overflow ---------- */
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea,
+.contact-form button {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ---------- Slider track safety ---------- */
+
+.services-slider__viewport,
+.news-slider__viewport {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.services-slider__track,
+.news-slider__track {
+  max-width: none;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  overflow-x: hidden;
+}
+
+.footer-links a,
+.footer-contact span,
+.footer-contact a,
+.footer-about {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ---------- Section dots / side nav ---------- */
+
+.section-nav {
+  display: none !important;
+  z-index: 90;
+}
+
+@media (max-width: 1024px) {
+  .section-nav {
+    display: none !important;
+  }
+}
+
+/* ---------- Prevent layout shift from transforms ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .fp-section,
+  .product-card,
+  .project-card,
+  .news-card,
+  .svc-card,
+  .contact-glass,
+  .contact-panel {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ---------- Fix viewport-fit vs mobile conflict ---------- */
+
+@media (max-width: 767px) {
+  .about-inner,
+  .products-inner,
+  .projects-inner,
+  .services-inner,
+  .news-inner,
+  .contact-inner {
+    height: auto !important;
+    max-height: none !important;
+    min-height: 100% !important;
+    overflow: visible !important;
+  }
+
+  .news-card {
+    height: auto !important;
+    min-height: 360px;
+  }
+
+  .news-card__media {
+    height: 200px !important;
+    flex: none !important;
+  }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="solar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tin tức và kiến thức điện mặt trời — Solar Miền Nam." />
+  <title>Tin tức | Solar Miền Nam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="../../js/themes/solar.js"></script>
+  <link rel="stylesheet" href="../../css/tokens.css" />
+  <link rel="stylesheet" href="../../css/news-pages.css" />
+</head>
+<body>
+  <header class="nw-header">
+    <a href="../" class="nw-back">← Trang chủ</a>
+    <p class="nw-brand">Solar <span>Miền Nam</span></p>
+  </header>
+
+  <main class="nw-wrap">
+    <p class="nw-label">Tin tức</p>
+    <h1 class="nw-title">Cập nhật kiến thức điện mặt trời</h1>
+    <p class="nw-desc">Chia sẻ kiến thức, xu hướng và kinh nghiệm thực tế giúp bạn hiểu rõ hơn về điện mặt trời.</p>
+    <ul class="nw-grid" id="nw-grid"></ul>
+  </main>
+
+  <script src="../../js/news-pages.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      window.SolarNewsPages && window.SolarNewsPages.mountCatalog();
+    });
+  </script>
+</body>
+</html>

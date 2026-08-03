@@ -1,0 +1,705 @@
+/* =========================================================
+   Viewport Fit — Section 2+ one-screen chapters
+   Desktop/laptop: no inner scroll. Mobile: scroll OK.
+   Load LAST (after corporate + about).
+   ========================================================= */
+
+:root {
+  --vf-header: var(--header-h-compact, 72px);
+  --vf-pad-top: 10px;
+  --vf-pad-bottom: 16px;
+  --vf-pad-x: clamp(20px, 3vw, 40px);
+  --vf-pad-left: clamp(20px, 3vw, 40px);
+  --vf-gap-head: 12px;
+  --vf-gap-content: clamp(16px, 2.2vh, 28px);
+  --vf-label: 13px;
+  --vf-heading: clamp(1.4rem, 3.2vh, 2.35rem); /* ~22–38px, up to ~42 on tall */
+  --vf-desc: clamp(13px, 1.55vh, 16px);
+  --vf-card-gap: 20px;
+  --vf-card-pad: 16px 18px;
+  --vf-btn-h: 48px;
+  --vf-img-ratio: 52%;
+}
+
+/* ---------- Section shell: natural height (normal page scroll) ---------- */
+
+@media (min-width: 768px) {
+  .fp-section:not(.hero) {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .about-inner,
+  .products-inner,
+  .projects-inner,
+  .services-inner,
+  .news-inner,
+  .contact-inner {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+    padding-top: calc(var(--vf-header) + clamp(28px, 4vh, 48px)) !important;
+    padding-bottom: clamp(48px, 7vh, 88px) !important;
+    padding-left: var(--vf-pad-left) !important;
+    padding-right: var(--vf-pad-x) !important;
+  }
+}
+
+/* ---------- Shared type rhythm ---------- */
+
+@media (min-width: 768px) {
+  .about-label,
+  .products-label,
+  .projects-label,
+  .services-label,
+  .news-label,
+  .contact-label {
+    margin: 0 !important;
+    font-size: var(--vf-label) !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  .fp-section.about .about-label {
+    margin: 0 0 18px !important;
+    padding-bottom: 10px !important;
+    border-bottom-width: 3px !important;
+    font-size: 13px !important;
+    color: #0B3D91 !important;
+  }
+
+  .fp-section.about .about-title {
+    margin-top: 0 !important;
+    font-size: clamp(1.55rem, 2.6vw, 2.35rem) !important;
+    line-height: 1.25 !important;
+    color: #0B3D91 !important;
+  }
+
+  .fp-section.about .about-desc {
+    margin-top: 22px !important;
+    font-size: clamp(14px, 1.15vw, 16px) !important;
+    line-height: 1.7 !important;
+    max-width: 520px !important;
+    color: #4B6280 !important;
+  }
+
+  .fp-section.about .about-cta {
+    margin-top: 28px !important;
+  }
+
+  .fp-section.about .about-media,
+  .fp-section.about .about-media img {
+    max-height: none !important;
+    height: 100% !important;
+  }
+
+  .fp-section.about .about-media {
+    height: clamp(380px, 58vh, 560px) !important;
+  }
+
+  .products-title,
+  .projects-title,
+  .services-title,
+  .news-title,
+  .contact-title {
+    margin-top: 12px !important;
+    margin-bottom: 0 !important;
+    font-size: var(--vf-heading) !important;
+    line-height: 1.22 !important;
+  }
+
+  .products-desc,
+  .projects-desc,
+  .services-desc,
+  .news-desc,
+  .contact-desc {
+    margin-top: 12px !important;
+    margin-bottom: 0 !important;
+    font-size: var(--vf-desc) !important;
+    line-height: 1.5 !important;
+    max-width: 540px !important;
+  }
+
+  .products-head,
+  .projects-head {
+    margin-bottom: var(--vf-gap-content) !important;
+    flex-shrink: 0 !important;
+  }
+
+  .fp-section.products .products-head {
+    margin-bottom: 10px !important;
+  }
+
+  .products-all,
+  .projects-all,
+  .services-all,
+  .news-all,
+  .about-cta {
+    height: var(--vf-btn-h) !important;
+    min-height: var(--vf-btn-h) !important;
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+  }
+}
+
+/* ---------- About ---------- */
+
+@media (min-width: 768px) {
+  .fp-section.about .about-inner {
+    gap: clamp(20px, 3vw, 40px) !important;
+  }
+}
+
+/* ---------- Products: 6 cards, shorter ---------- */
+
+@media (min-width: 768px) {
+  .products-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
+
+  .products-grid {
+    gap: var(--vf-card-gap) !important;
+    flex: 0 1 auto !important;
+    min-height: 0 !important;
+  }
+
+  .product-card {
+    border-radius: 14px !important;
+  }
+
+  .product-card__media {
+    height: clamp(100px, 14vh, 150px) !important;
+    flex: none !important;
+    padding: 12px !important;
+  }
+
+  .product-card__body {
+    padding: 12px 14px 14px !important;
+  }
+
+  .product-card__brand {
+    font-size: 10px !important;
+  }
+
+  .product-card__name {
+    font-size: 13px !important;
+    margin-top: 4px !important;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .product-card__summary {
+    display: none !important;
+  }
+
+  .product-card__cta,
+  .product-card__more {
+    font-size: 11px !important;
+    margin-top: 8px !important;
+  }
+
+  .products-foot {
+    margin-top: clamp(12px, 1.8vh, 20px) !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* ---------- Projects: 4 cards, wider than tall ---------- */
+
+@media (min-width: 768px) {
+  .projects-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  .projects-grid {
+    gap: var(--vf-card-gap) !important;
+  }
+
+  .project-card {
+    border-radius: 14px !important;
+  }
+
+  .project-card__media {
+    height: clamp(110px, 16vh, 160px) !important;
+    flex: none !important;
+  }
+
+  .project-card__body {
+    padding: 12px 14px 14px !important;
+  }
+
+  .project-card__title {
+    font-size: 13px !important;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .project-card__place,
+  .project-card__meta {
+    font-size: 11px !important;
+  }
+
+  .project-card__excerpt,
+  .project-card__text {
+    display: none !important;
+  }
+
+  .projects-foot {
+    margin-top: clamp(12px, 1.8vh, 20px) !important;
+  }
+}
+
+/* ---------- Services slider ---------- */
+
+@media (min-width: 768px) {
+  .services-inner {
+    gap: clamp(24px, 3vw, 48px) !important;
+    align-items: center !important;
+  }
+
+  .services-desc {
+    max-width: 320px !important;
+  }
+
+  .services-all {
+    margin-top: 16px !important;
+  }
+
+  .svc-card {
+    border-radius: 16px !important;
+  }
+
+  .svc-card__media {
+    height: clamp(140px, 22vh, 200px) !important;
+    flex: 0 0 auto !important;
+  }
+
+  .svc-card__body {
+    padding: 12px 14px 14px !important;
+  }
+
+  .svc-card__title {
+    font-size: 13px !important;
+  }
+
+  .services-slider__nav {
+    margin-top: 14px !important;
+  }
+
+  .services-nav-btn {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+/* ---------- News slider ---------- */
+
+@media (min-width: 768px) {
+  .news-inner {
+    gap: clamp(24px, 3vw, 48px) !important;
+    align-items: center !important;
+  }
+
+  .news-desc {
+    max-width: 300px !important;
+  }
+
+  .news-all {
+    margin-top: 16px !important;
+  }
+
+  .news-card {
+    height: clamp(280px, 42vh, 360px) !important;
+    border-radius: 18px !important;
+  }
+
+  .news-card__media {
+    flex: 0 0 55% !important;
+    height: 55% !important;
+  }
+
+  .news-card__body {
+    padding: 12px 14px 14px !important;
+  }
+
+  .news-card__title {
+    font-size: 13px !important;
+  }
+
+  .news-slider__nav {
+    margin-top: 14px !important;
+  }
+
+  .news-nav-btn {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+/* ---------- Contact: fit form + glass in one screen ---------- */
+
+@media (min-width: 768px) {
+  .contact-inner {
+    gap: clamp(28px, 4vw, 56px) !important;
+    align-items: center !important;
+  }
+
+  .contact-glass {
+    padding: 22px 24px !important;
+    border-radius: 24px !important;
+  }
+
+  .contact-benefits {
+    margin-top: 12px !important;
+    gap: 6px !important;
+  }
+
+  .contact-benefits li {
+    font-size: 12px !important;
+  }
+
+  .contact-benefits__icon {
+    width: 18px !important;
+    height: 18px !important;
+    font-size: 10px !important;
+  }
+
+  .contact-info {
+    margin-top: 12px !important;
+    gap: 8px !important;
+  }
+
+  .contact-info__card {
+    padding: 8px 10px !important;
+    border-radius: 12px !important;
+  }
+
+  .contact-info__icon {
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 8px !important;
+  }
+
+  .contact-info__label {
+    font-size: 9px !important;
+  }
+
+  .contact-info__value {
+    font-size: 11px !important;
+  }
+
+  .contact-social {
+    margin-top: 12px !important;
+    gap: 8px !important;
+  }
+
+  .contact-social a {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .contact-form,
+  .contact-success {
+    padding: 22px 24px !important;
+    border-radius: 22px !important;
+  }
+
+  .contact-form__title {
+    margin-bottom: 12px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .contact-form__fields {
+    gap: 8px 12px !important;
+  }
+
+  .contact-form__field label {
+    margin-bottom: 4px !important;
+    font-size: 11px !important;
+  }
+
+  .contact-form input[type="text"],
+  .contact-form input[type="tel"],
+  .contact-form input[type="email"],
+  .contact-form select {
+    height: 42px !important;
+    padding: 0 14px !important;
+    border-radius: 10px !important;
+    font-size: 13px !important;
+  }
+
+  .contact-form textarea {
+    height: 64px !important;
+    min-height: 64px !important;
+    padding: 10px 14px !important;
+    border-radius: 10px !important;
+  }
+
+  .contact-form__submit {
+    height: 48px !important;
+    margin-top: 10px !important;
+    border-radius: 12px !important;
+  }
+
+  .contact-form__error {
+    font-size: 11px !important;
+    margin-top: 2px !important;
+  }
+
+  .contact-form__consent label {
+    font-size: 12px !important;
+  }
+
+  .contact-bg__silhouette {
+    height: min(100px, 14vh) !important;
+    opacity: 0.12 !important;
+  }
+}
+
+/* Hide long address wrap pressure on short contact */
+@media (min-width: 768px) and (max-height: 860px) {
+  .contact-benefits {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px 10px !important;
+  }
+
+  .contact-info {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* ---------- Progressive scale-down by viewport height ---------- */
+
+@media (min-width: 768px) and (max-height: 900px) {
+  :root {
+    --vf-pad-top: 8px;
+    --vf-pad-bottom: 12px;
+    --vf-heading: clamp(1.25rem, 2.8vh, 1.85rem);
+    --vf-desc: 13px;
+    --vf-gap-content: 14px;
+    --vf-card-gap: 16px;
+  }
+
+  .product-card__media {
+    height: clamp(90px, 12vh, 130px) !important;
+  }
+
+  .project-card__media {
+    height: clamp(96px, 13vh, 136px) !important;
+  }
+
+  .news-card {
+    height: clamp(250px, 38vh, 320px) !important;
+  }
+
+  .svc-card__media {
+    height: clamp(120px, 18vh, 170px) !important;
+  }
+}
+
+@media (min-width: 768px) and (max-height: 800px) {
+  :root {
+    --vf-pad-top: 6px;
+    --vf-pad-bottom: 10px;
+    --vf-heading: clamp(1.15rem, 2.5vh, 1.6rem);
+    --vf-label: 12px;
+    --vf-desc: 12px;
+    --vf-btn-h: 44px;
+    --vf-card-gap: 12px;
+  }
+
+  .fp-section.about .about-feature__text {
+    display: none !important;
+  }
+
+  .product-card__media {
+    height: clamp(80px, 11vh, 110px) !important;
+    padding: 8px !important;
+  }
+
+  .product-card__body {
+    padding: 10px 12px 12px !important;
+  }
+
+  .project-card__media {
+    height: clamp(84px, 12vh, 120px) !important;
+  }
+
+  .news-card {
+    height: clamp(220px, 34vh, 280px) !important;
+  }
+
+  .svc-card__media {
+    height: clamp(100px, 16vh, 140px) !important;
+  }
+
+  .contact-glass {
+    padding: 14px 16px !important;
+  }
+
+  .contact-form {
+    padding: 14px 16px !important;
+  }
+
+  .contact-form input[type="text"],
+  .contact-form input[type="tel"],
+  .contact-form input[type="email"],
+  .contact-form select {
+    height: 36px !important;
+  }
+
+  .contact-form textarea {
+    height: 48px !important;
+    min-height: 48px !important;
+  }
+
+  .contact-form__submit {
+    height: 42px !important;
+    margin-top: 8px !important;
+  }
+
+  .contact-social a {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .contact-benefits {
+    display: none !important;
+  }
+
+  .contact-info {
+    margin-top: 8px !important;
+  }
+
+  .contact-form__title {
+    margin-bottom: 8px !important;
+    font-size: 0.82rem !important;
+  }
+
+  .contact-inner {
+    gap: 24px !important;
+  }
+
+  .projects-grid {
+    gap: 10px !important;
+  }
+
+  .project-card__body {
+    padding: 8px 10px 10px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-height: 720px) {
+  :root {
+    --vf-heading: 1.15rem;
+    --vf-pad-top: 4px;
+    --vf-pad-bottom: 8px;
+  }
+
+  .products-desc,
+  .projects-desc,
+  .services-desc,
+  .news-desc {
+    display: none !important;
+  }
+
+  .contact-desc {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden !important;
+  }
+
+  .fp-section.about .about-features {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* Tall / Full HD — allow slightly larger type within one screen */
+@media (min-width: 768px) and (min-height: 1000px) {
+  :root {
+    --vf-label: 15px;
+    --vf-heading: clamp(2rem, 3.6vh, 2.75rem); /* ~42–44px */
+    --vf-desc: 17px;
+    --vf-gap-content: 28px;
+    --vf-pad-top: 16px;
+    --vf-pad-bottom: 24px;
+    --vf-card-gap: 24px;
+  }
+
+  .product-card__media {
+    height: clamp(130px, 16vh, 180px) !important;
+  }
+
+  .project-card__media {
+    height: clamp(140px, 18vh, 190px) !important;
+  }
+
+  .news-card {
+    height: clamp(320px, 44vh, 400px) !important;
+  }
+
+  .svc-card__media {
+    height: clamp(160px, 22vh, 220px) !important;
+  }
+
+  .contact-glass,
+  .contact-form {
+    padding: 28px 30px !important;
+  }
+
+  .contact-form input[type="text"],
+  .contact-form input[type="tel"],
+  .contact-form input[type="email"],
+  .contact-form select {
+    height: 48px !important;
+  }
+
+  .contact-form textarea {
+    height: 80px !important;
+    min-height: 80px !important;
+  }
+
+  .contact-form__submit {
+    height: 50px !important;
+  }
+}
+
+/* Tablet: allow taller / scroll if needed */
+@media (min-width: 768px) and (max-width: 1100px) {
+  .fp-section:not(.hero) {
+    overflow: visible !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .about-inner,
+  .products-inner,
+  .projects-inner,
+  .services-inner,
+  .news-inner,
+  .contact-inner {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    min-height: 0 !important;
+  }
+}
+
+/* Mobile: normal page scroll */
+@media (max-width: 767px) {
+  .fp-section:not(.hero) {
+    overflow: visible !important;
+    -webkit-overflow-scrolling: touch;
+  }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="solar" data-solar-base="../">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Giỏ hàng &amp; yêu cầu báo giá — Solar Miền Nam." />
+  <title>Giỏ hàng — Yêu cầu báo giá | Solar Miền Nam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="../../js/themes/solar.js"></script>
+  <link rel="stylesheet" href="../../css/tokens.css" />
+  <link rel="stylesheet" href="../../css/cart.css" />
+</head>
+<body class="cart-shell">
+  <header class="cart-shell__header">
+    <a href="../" class="pp-back" style="color:var(--primary);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase">← Trang chủ</a>
+    <p class="cart-shell__brand">Solar <span>Miền Nam</span></p>
+    <div class="cart-shell__nav">
+      <a href="../danh-muc-san-pham/">Sản phẩm</a>
+      <div data-cart-mount="light"></div>
+    </div>
+  </header>
+
+  <main class="cart-shell__main">
+    <div id="cart-page"></div>
+  </main>
+
+  <script src="../../js/cart.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      window.SolarCart && window.SolarCart.mountCartPage();
+    });
+  </script>
+</body>
+</html>

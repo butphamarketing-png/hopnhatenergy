@@ -1,0 +1,239 @@
+/* =========================================================
+   Motion & UX polish — shared entrances, hovers, responsive
+   No content/layout redesign — spacing & motion only
+   ========================================================= */
+
+/* --- Shared section head entrances --- */
+.products-label,
+.projects-label,
+.services-label,
+.products-title,
+.projects-title,
+.services-title,
+.products-desc,
+.projects-desc,
+.services-desc {
+  transform: translateY(30px);
+  transition:
+    opacity var(--dur-text) var(--ease-out),
+    transform var(--dur-text) var(--ease-out);
+}
+
+.product-card,
+.project-card {
+  transform: translateY(30px);
+}
+
+.product-card,
+.project-card {
+  transition:
+    opacity var(--dur-text) var(--ease-out),
+    transform 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out);
+}
+
+.product-card.is-in,
+.project-card.is-in {
+  transform: translateY(0);
+}
+
+.product-card.is-in:hover,
+.project-card.is-in:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lift);
+}
+
+/* Image zoom on hover — soft 1.05 */
+.product-card__media img,
+.project-card__media img {
+  transition: transform 0.7s var(--ease-out);
+}
+
+.product-card:hover .product-card__media img,
+.project-card:hover .project-card__media img {
+  transform: scale(1.05);
+}
+
+/* Buttons — consistent hover */
+.btn:hover,
+.product-card__cart:hover,
+.products-all:hover,
+.projects-all:hover,
+.news-all:hover,
+.services-cta__btn:hover,
+.contact-btn:hover,
+.btn-quote:hover {
+  transform: scale(1.03);
+}
+
+.btn-primary:hover,
+.contact-btn--primary:hover,
+.product-card__cart:hover,
+.services-cta__btn:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+/* Hero slide: will-change only when active */
+.hero-slide__img {
+  will-change: auto;
+}
+
+.hero-slide.is-active .hero-slide__img {
+  will-change: transform;
+}
+
+/* =========================================================
+   Responsive — popular breakpoints
+   ========================================================= */
+
+@media (max-width: 1440px) {
+  .about-features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 18px;
+  }
+}
+
+@media (max-height: 800px) and (min-width: 1101px) {
+  .about-media {
+    max-height: min(300px, 36vh);
+  }
+
+  .scroll-hint {
+    display: none;
+  }
+}
+
+@media (max-width: 1366px) {
+  .section-nav {
+    left: 18px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .section-nav {
+    left: 14px;
+  }
+}
+
+/* Short laptop — allow overflow only if content still exceeds */
+@media (max-height: 820px) and (min-width: 901px) {
+  .fp-section.about,
+  .fp-section.products,
+  .fp-section.projects,
+  .fp-section.services,
+  .fp-section.news,
+  .fp-section.contact,
+  .fp-section.site-footer {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* Product card layout handled in products.css */
+}
+
+@media (max-width: 900px) {
+  .scroll-hint {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-inner,
+  .products-inner,
+  .projects-inner,
+  .services-inner,
+  .news-inner,
+  .contact-inner,
+  .site-footer__inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .products-head,
+  .projects-head,
+  .services-head,
+  .news-head {
+    margin-bottom: 28px;
+  }
+
+  .products-title,
+  .projects-title,
+  .services-title,
+  .news-title {
+    font-size: clamp(1.2rem, 4.5vw, 1.6rem);
+  }
+
+  .header-industry {
+    max-width: min(52vw, 220px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 430px) {
+  .about-inner,
+  .products-inner,
+  .projects-inner,
+  .services-inner,
+  .news-inner,
+  .contact-inner,
+  .site-footer__inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .btn,
+  .product-card__cart,
+  .products-all,
+  .projects-all,
+  .news-all {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .products-foot,
+  .projects-foot {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .about-feature__title,
+  .product-card__name,
+  .project-card__title,
+  .news-card__title {
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+
+  .header-phone__num {
+    font-size: 12px;
+  }
+}
+
+/* Prefer transform/opacity only under reduced motion already in site.css */
+@media (prefers-reduced-motion: reduce) {
+  .fp-section,
+  .fp-section.is-leaving-up,
+  .fp-section.is-leaving-down {
+    transition-duration: 0.01ms !important;
+    transform: none !important;
+  }
+
+  .product-card.is-in:hover,
+  .project-card.is-in:hover,
+  .news-card.is-in:hover,
+  .btn:hover {
+    transform: none;
+  }
+}

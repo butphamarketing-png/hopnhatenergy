@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="solar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dịch vụ điện mặt trời trọn gói — Solar Miền Nam." />
+  <title>Dịch vụ | Solar Miền Nam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="../../js/themes/solar.js"></script>
+  <link rel="stylesheet" href="../../css/tokens.css" />
+  <link rel="stylesheet" href="../../css/services-pages.css" />
+</head>
+<body>
+  <header class="sv-header">
+    <a href="../" class="sv-back">← Trang chủ</a>
+    <p class="sv-brand">Solar <span>Miền Nam</span></p>
+  </header>
+
+  <main class="sv-wrap">
+    <p class="sv-label">Dịch vụ</p>
+    <h1 class="sv-title">Đồng hành cùng khách hàng trong mọi giai đoạn</h1>
+    <p class="sv-desc">Từ khảo sát đến bảo trì, chúng tôi đồng hành cùng bạn ở mọi bước để hệ thống vận hành ổn định và bền vững.</p>
+    <ul class="sv-grid" id="sv-grid"></ul>
+  </main>
+
+  <script src="../../js/service-pages.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      window.SolarServicePages && window.SolarServicePages.mountCatalog();
+    });
+  </script>
+</body>
+</html>

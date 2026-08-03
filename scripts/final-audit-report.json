@@ -1,0 +1,799 @@
+{
+  "at": "2026-08-01T19:23:04.483Z",
+  "homes": {
+    "solar": {
+      "site": "solar",
+      "theme": "solar",
+      "primary": "#F97316",
+      "sections": {
+        "section-01": true,
+        "section-02": true,
+        "section-03": true,
+        "section-04": true,
+        "section-05": true,
+        "section-06": true,
+        "section-07": true,
+        "section-08": true
+      },
+      "header": {
+        "exists": true,
+        "menu": true,
+        "industry": true,
+        "phone": true,
+        "cart": true,
+        "compactClass": false,
+        "industryText": "ĐIỆN MẶT TRỜI",
+        "bg": "rgba(0, 0, 0, 0)",
+        "backdrop": "none"
+      },
+      "cart": {
+        "btn": true
+      },
+      "issues": [],
+      "hero": {
+        "fullscreen": true,
+        "hasSlides": true,
+        "ctaCount": 2
+      },
+      "bgs": {
+        "02": {
+          "hasLayer": true,
+          "src": "",
+          "solarAsset": false,
+          "unsplash": false
+        },
+        "03": {
+          "hasLayer": true,
+          "src": "",
+          "solarAsset": false,
+          "unsplash": false
+        },
+        "04": {
+          "hasLayer": true,
+          "src": "",
+          "solarAsset": false,
+          "unsplash": false
+        },
+        "05": {
+          "hasLayer": true,
+          "src": "",
+          "solarAsset": false,
+          "unsplash": false
+        },
+        "06": {
+          "hasLayer": true,
+          "src": "",
+          "solarAsset": false,
+          "unsplash": false
+        },
+        "07": {
+          "hasLayer": true,
+          "src": "../assets/backgrounds/bg-section-07-contact.png",
+          "solarAsset": true,
+          "unsplash": false
+        }
+      },
+      "products": {
+        "count": 6,
+        "hasPrice": true,
+        "hasAdd": true,
+        "hasDetailCta": true
+      },
+      "sliders": {
+        "services": true,
+        "news": true,
+        "svcNav": true,
+        "newsNav": true
+      },
+      "pagination": {
+        "products": true,
+        "projects": true
+      },
+      "contact": {
+        "form": true,
+        "fields": 8
+      },
+      "sampleLinks": [
+        "#fullpage",
+        "../",
+        "#section-01",
+        "#section-02",
+        "#section-03",
+        "#section-04",
+        "#section-05",
+        "#section-06",
+        "#section-07",
+        "#section-01",
+        "#section-02",
+        "#section-03",
+        "#section-04",
+        "#section-05",
+        "#section-06",
+        "#section-07",
+        "#section-03",
+        "#section-02",
+        "gioi-thieu/",
+        "#section-03",
+        "san-pham/pin-longi-585w/",
+        "san-pham/inverter-solis-5kw/",
+        "san-pham/pin-luu-tru-deye-5kwh/",
+        "san-pham/tu-dien-suntree/",
+        "san-pham/cap-dc-cadivi/",
+        "san-pham/khung-gia-do-vrock/",
+        "danh-muc-san-pham/",
+        "#section-04",
+        "du-an/biet-thu-binh-duong/",
+        "du-an/nha-xuong-long-an/",
+        "du-an/trung-tam-thuong-mai-tphcm/",
+        "du-an/trang-trai-tay-ninh/",
+        "du-an/biet-thu-binh-duong/",
+        "#section-05",
+        "dich-vu/",
+        "dich-vu/khao-sat-cong-trinh/",
+        "dich-vu/thiet-ke-he-thong/",
+        "dich-vu/thi-cong-lap-dat/",
+        "dich-vu/nghiem-thu-ban-giao/",
+        "dich-vu/bao-tri-dinh-ky/"
+      ],
+      "uxSignals": {
+        "hasValueProp": true,
+        "hasCta": true,
+        "industry": "ĐIỆN MẶT TRỜI"
+      },
+      "headerAfter": {
+        "isCompact": true,
+        "bg": "rgba(0, 0, 0, 0)",
+        "industryVisible": true,
+        "logoHidden": true,
+        "menuVisible": true,
+        "cartVisible": true,
+        "phoneVisible": true
+      },
+      "viewportFit": {
+        "02": {
+          "height": 893,
+          "scrollHeight": 910,
+          "fits": true,
+          "overflow": 10
+        },
+        "03": {
+          "height": 893,
+          "scrollHeight": 910,
+          "fits": true,
+          "overflow": 10
+        },
+        "04": {
+          "height": 893,
+          "scrollHeight": 910,
+          "fits": true,
+          "overflow": 10
+        },
+        "05": {
+          "height": 893,
+          "scrollHeight": 910,
+          "fits": true,
+          "overflow": 10
+        },
+        "06": {
+          "height": 893,
+          "scrollHeight": 910,
+          "fits": true,
+          "overflow": 10
+        },
+        "07": {
+          "height": 893,
+          "scrollHeight": 900,
+          "fits": true,
+          "overflow": 0
+        }
+      }
+    },
+    "led": {
+      "site": "led",
+      "theme": "led",
+      "primary": "#0B3D91",
+      "sections": {
+        "section-01": true,
+        "section-02": true,
+        "section-03": true,
+        "section-04": true,
+        "section-05": true,
+        "section-06": true,
+        "section-07": true,
+        "section-08": true
+      },
+      "header": {
+        "exists": true,
+        "menu": true,
+        "industry": true,
+        "phone": true,
+        "cart": true,
+        "compactClass": false,
+        "industryText": "ĐÈN LED",
+        "bg": "rgba(0, 0, 0, 0)",
+        "backdrop": "none"
+      },
+      "cart": {
+        "btn": true
+      },
+      "issues": [],
+      "hero": {
+        "fullscreen": true,
+        "hasSlides": true,
+        "ctaCount": 2
+      },
+      "bgs": {
+        "02": {
+          "hasLayer": true,
+          "src": "",
+          "solarAsset": false,
+          "unsplash": false
+        },
+        "03": {
+          "hasLayer": true,
+          "src": "",
+          "solarAsset": false,
+          "unsplash": false
+        },
+        "04": {
+          "hasLayer": true,
+          "src": "",
+          "solarAsset": false,
+          "unsplash": false
+        },
+        "05": {
+          "hasLayer": true,
+          "src": "",
+          "solarAsset": false,
+          "unsplash": false
+        },
+        "06": {
+          "hasLayer": true,
+          "src": "",
+          "solarAsset": false,
+          "unsplash": false
+        },
+        "07": {
+          "hasLayer": true,
+          "src": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=3840&q=90",
+          "solarAsset": false,
+          "unsplash": true
+        }
+      },
+      "products": {
+        "count": 6,
+        "hasPrice": true,
+        "hasAdd": true,
+        "hasDetailCta": true
+      },
+      "sliders": {
+        "services": true,
+        "news": true,
+        "svcNav": true,
+        "newsNav": true
+      },
+      "pagination": {
+        "products": true,
+        "projects": true
+      },
+      "contact": {
+        "form": true,
+        "fields": 8
+      },
+      "sampleLinks": [
+        "#fullpage",
+        "../",
+        "#section-01",
+        "#section-02",
+        "#section-03",
+        "#section-04",
+        "#section-05",
+        "#section-06",
+        "#section-07",
+        "#section-01",
+        "#section-02",
+        "#section-03",
+        "#section-04",
+        "#section-05",
+        "#section-06",
+        "#section-07",
+        "#section-07",
+        "#section-03",
+        "#section-02",
+        "#section-03",
+        "#section-03",
+        "san-pham/den-led-panel-48w/",
+        "san-pham/den-led-am-tran-12w/",
+        "san-pham/den-led-nha-xuong-150w/",
+        "san-pham/den-led-pha-200w/",
+        "san-pham/den-led-duong-120w/",
+        "san-pham/den-led-nang-luong-mat-troi-60w/",
+        "danh-muc-san-pham/",
+        "#section-04",
+        "du-an/nha-xuong-long-an/",
+        "du-an/van-phong-quan-1/",
+        "du-an/truong-hoc-binh-duong/",
+        "du-an/benh-vien-dong-nai/",
+        "du-an/kcn-ba-ria/",
+        "du-an/khach-san-resort-nha-trang/",
+        "du-an/nha-xuong-long-an/",
+        "#section-05",
+        "dich-vu/",
+        "dich-vu/tu-van-chieu-sang/",
+        "dich-vu/thiet-ke-he-thong-den/"
+      ],
+      "uxSignals": {
+        "hasValueProp": true,
+        "hasCta": true,
+        "industry": "ĐÈN LED"
+      },
+      "headerAfter": {
+        "isCompact": true,
+        "bg": "rgba(0, 0, 0, 0)",
+        "industryVisible": true,
+        "logoHidden": true,
+        "menuVisible": true,
+        "cartVisible": true,
+        "phoneVisible": true
+      },
+      "viewportFit": {
+        "02": {
+          "height": 893,
+          "scrollHeight": 910,
+          "fits": true,
+          "overflow": 10
+        },
+        "03": {
+          "height": 893,
+          "scrollHeight": 910,
+          "fits": true,
+          "overflow": 10
+        },
+        "04": {
+          "height": 893,
+          "scrollHeight": 910,
+          "fits": true,
+          "overflow": 10
+        },
+        "05": {
+          "height": 893,
+          "scrollHeight": 910,
+          "fits": true,
+          "overflow": 10
+        },
+        "06": {
+          "height": 893,
+          "scrollHeight": 910,
+          "fits": true,
+          "overflow": 10
+        },
+        "07": {
+          "height": 893,
+          "scrollHeight": 900,
+          "fits": true,
+          "overflow": 0
+        }
+      }
+    }
+  },
+  "routes": {
+    "solar": [
+      {
+        "route": "/solar/",
+        "status": 200,
+        "title": "Solar Miền Nam | Giải pháp điện mặt trời toàn diện",
+        "ok": true
+      },
+      {
+        "route": "/solar/danh-muc-san-pham/",
+        "status": 200,
+        "title": "Danh mục sản phẩm | Solar Miền Nam",
+        "ok": true
+      },
+      {
+        "route": "/solar/san-pham/pin-longi-585w/",
+        "status": 200,
+        "title": "Pin năng lượng mặt trời LONGI 585W | Solar Miền Nam",
+        "ok": true
+      },
+      {
+        "route": "/solar/gio-hang/",
+        "status": 200,
+        "title": "Giỏ hàng — Yêu cầu báo giá | Solar Miền Nam",
+        "ok": true
+      },
+      {
+        "route": "/solar/gioi-thieu/",
+        "status": 200,
+        "title": "Giới thiệu | Solar Miền Nam",
+        "ok": true
+      },
+      {
+        "route": "/solar/dich-vu/",
+        "status": 200,
+        "title": "Dịch vụ | Solar Miền Nam",
+        "ok": true
+      },
+      {
+        "route": "/solar/dich-vu/khao-sat-cong-trinh/",
+        "status": 200,
+        "title": "Khảo sát công trình | Solar Miền Nam",
+        "ok": true
+      },
+      {
+        "route": "/solar/tin-tuc/",
+        "status": 200,
+        "title": "Tin tức | Solar Miền Nam",
+        "ok": true
+      },
+      {
+        "route": "/solar/tin-tuc/cach-chon-cong-suat-he-thong/",
+        "status": 200,
+        "title": "Cách chọn công suất hệ thống điện mặt trời phù hợp cho gia đ",
+        "ok": true
+      },
+      {
+        "route": "/solar/du-an/nha-xuong-long-an/",
+        "status": 200,
+        "title": "Nhà xưởng may mặc - Long An | Solar Miền Nam",
+        "ok": true
+      },
+      {
+        "route": "/solar/thanh-toan/",
+        "status": 200,
+        "title": "Giỏ hàng — Yêu cầu báo giá | Solar Miền Nam",
+        "ok": true
+      }
+    ],
+    "led": [
+      {
+        "route": "/den-led/",
+        "status": 200,
+        "title": "Đèn LED | Giải pháp chiếu sáng hiện đại | Solar Miền Nam",
+        "ok": true
+      },
+      {
+        "route": "/den-led/danh-muc-san-pham/",
+        "status": 200,
+        "title": "Danh mục đèn LED | Solar Miền Nam",
+        "ok": true
+      },
+      {
+        "route": "/den-led/san-pham/den-led-panel-48w/",
+        "status": 200,
+        "title": "Đèn LED Panel 48W | Solar Miền Nam",
+        "ok": true
+      },
+      {
+        "route": "/den-led/gio-hang/",
+        "status": 200,
+        "title": "Giỏ hàng LED — Yêu cầu báo giá | Solar Miền Nam",
+        "ok": true
+      },
+      {
+        "route": "/den-led/dich-vu/",
+        "status": 200,
+        "title": "Dịch vụ chiếu sáng LED | Solar Miền Nam",
+        "ok": true
+      },
+      {
+        "route": "/den-led/dich-vu/tu-van-chieu-sang/",
+        "status": 200,
+        "title": "Tư vấn chiếu sáng | Solar Miền Nam",
+        "ok": true
+      },
+      {
+        "route": "/den-led/tin-tuc/",
+        "status": 200,
+        "title": "Tin tức chiếu sáng LED | Solar Miền Nam",
+        "ok": true
+      },
+      {
+        "route": "/den-led/tin-tuc/kien-thuc-den-led/",
+        "status": 200,
+        "title": "Kiến thức đèn LED cơ bản cho chủ đầu tư và kỹ thuật | Solar ",
+        "ok": true
+      },
+      {
+        "route": "/den-led/du-an/",
+        "status": 200,
+        "title": "Dá»± Ã¡n chiáº¿u sÃ¡ng LED | Solar Miá»n Nam",
+        "ok": true
+      },
+      {
+        "route": "/den-led/du-an/nha-xuong-long-an/",
+        "status": 200,
+        "title": "Chiếu sáng nhà xưởng may - Long An | Solar Miền Nam",
+        "ok": true
+      },
+      {
+        "route": "/den-led/thanh-toan/",
+        "status": 200,
+        "title": "Giỏ hàng LED — Yêu cầu báo giá | Solar Miền Nam",
+        "ok": true
+      }
+    ]
+  },
+  "overflow": {
+    "solar": [
+      {
+        "w": 320,
+        "h": 640,
+        "hScroll": false,
+        "offenders": [
+          {
+            "tag": "ASIDE",
+            "id": "mini-cart",
+            "cls": "mini-cart",
+            "left": 320,
+            "right": 640
+          }
+        ]
+      },
+      {
+        "w": 375,
+        "h": 812,
+        "hScroll": false,
+        "offenders": [
+          {
+            "tag": "ASIDE",
+            "id": "mini-cart",
+            "cls": "mini-cart",
+            "left": 375,
+            "right": 750
+          }
+        ]
+      },
+      {
+        "w": 390,
+        "h": 844,
+        "hScroll": false,
+        "offenders": [
+          {
+            "tag": "ASIDE",
+            "id": "mini-cart",
+            "cls": "mini-cart",
+            "left": 390,
+            "right": 780
+          }
+        ]
+      },
+      {
+        "w": 414,
+        "h": 896,
+        "hScroll": false,
+        "offenders": [
+          {
+            "tag": "ASIDE",
+            "id": "mini-cart",
+            "cls": "mini-cart",
+            "left": 414,
+            "right": 828
+          }
+        ]
+      },
+      {
+        "w": 768,
+        "h": 1024,
+        "hScroll": false,
+        "offenders": [
+          {
+            "tag": "ASIDE",
+            "id": "mini-cart",
+            "cls": "mini-cart",
+            "left": 768,
+            "right": 1128
+          }
+        ]
+      },
+      {
+        "w": 1024,
+        "h": 768,
+        "hScroll": false,
+        "offenders": [
+          {
+            "tag": "ASIDE",
+            "id": "mini-cart",
+            "cls": "mini-cart",
+            "left": 1024,
+            "right": 1384
+          }
+        ]
+      },
+      {
+        "w": 1280,
+        "h": 800,
+        "hScroll": false,
+        "offenders": [
+          {
+            "tag": "ASIDE",
+            "id": "mini-cart",
+            "cls": "mini-cart",
+            "left": 1280,
+            "right": 1700
+          }
+        ]
+      },
+      {
+        "w": 1440,
+        "h": 900,
+        "hScroll": false,
+        "offenders": [
+          {
+            "tag": "ASIDE",
+            "id": "mini-cart",
+            "cls": "mini-cart",
+            "left": 1440,
+            "right": 1860
+          }
+        ]
+      },
+      {
+        "w": 1920,
+        "h": 1080,
+        "hScroll": false,
+        "offenders": [
+          {
+            "tag": "ASIDE",
+            "id": "mini-cart",
+            "cls": "mini-cart",
+            "left": 1920,
+            "right": 2340
+          }
+        ]
+      }
+    ],
+    "led": [
+      {
+        "w": 320,
+        "h": 640,
+        "hScroll": false,
+        "offenders": [
+          {
+            "tag": "ASIDE",
+            "id": "mini-cart",
+            "cls": "mini-cart",
+            "left": 320,
+            "right": 640
+          }
+        ]
+      },
+      {
+        "w": 375,
+        "h": 812,
+        "hScroll": false,
+        "offenders": [
+          {
+            "tag": "ASIDE",
+            "id": "mini-cart",
+            "cls": "mini-cart",
+            "left": 375,
+            "right": 750
+          }
+        ]
+      },
+      {
+        "w": 390,
+        "h": 844,
+        "hScroll": false,
+        "offenders": [
+          {
+            "tag": "ASIDE",
+            "id": "mini-cart",
+            "cls": "mini-cart",
+            "left": 390,
+            "right": 780
+          }
+        ]
+      },
+      {
+        "w": 414,
+        "h": 896,
+        "hScroll": false,
+        "offenders": [
+          {
+            "tag": "ASIDE",
+            "id": "mini-cart",
+            "cls": "mini-cart",
+            "left": 414,
+            "right": 828
+          }
+        ]
+      },
+      {
+        "w": 768,
+        "h": 1024,
+        "hScroll": false,
+        "offenders": [
+          {
+            "tag": "ASIDE",
+            "id": "mini-cart",
+            "cls": "mini-cart",
+            "left": 768,
+            "right": 1128
+          }
+        ]
+      },
+      {
+        "w": 1024,
+        "h": 768,
+        "hScroll": false,
+        "offenders": [
+          {
+            "tag": "ASIDE",
+            "id": "mini-cart",
+            "cls": "mini-cart",
+            "left": 1024,
+            "right": 1384
+          }
+        ]
+      },
+      {
+        "w": 1280,
+        "h": 800,
+        "hScroll": false,
+        "offenders": [
+          {
+            "tag": "ASIDE",
+            "id": "mini-cart",
+            "cls": "mini-cart",
+            "left": 1280,
+            "right": 1700
+          }
+        ]
+      },
+      {
+        "w": 1440,
+        "h": 900,
+        "hScroll": false,
+        "offenders": [
+          {
+            "tag": "ASIDE",
+            "id": "mini-cart",
+            "cls": "mini-cart",
+            "left": 1440,
+            "right": 1860
+          }
+        ]
+      },
+      {
+        "w": 1920,
+        "h": 1080,
+        "hScroll": false,
+        "offenders": [
+          {
+            "tag": "ASIDE",
+            "id": "mini-cart",
+            "cls": "mini-cart",
+            "left": 1920,
+            "right": 2340
+          }
+        ]
+      }
+    ]
+  },
+  "cart": {
+    "solar": {
+      "opened": true,
+      "badge": true,
+      "toast": true,
+      "addBtn": true
+    },
+    "led": {
+      "opened": true,
+      "badge": true,
+      "toast": true,
+      "addBtn": true
+    }
+  },
+  "parity": {
+    "sameSectionOrder": true,
+    "solarPrimary": "#F97316",
+    "ledPrimary": "#0B3D91",
+    "bothHaveCart": true,
+    "bothHaveSliders": true,
+    "solarUsesLocalBg": 1,
+    "ledUsesUnsplash": 1,
+    "ledMissingGioiThieuRoute": true
+  }
+}
