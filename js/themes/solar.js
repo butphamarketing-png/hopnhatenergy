@@ -28,6 +28,7 @@ window.SiteThemes.solar = {
     desc: 'Giải pháp tiết kiệm điện và phát triển bền vững dành cho hộ gia đình, doanh nghiệp và nhà xưởng.',
     ctaPrimary: 'Liên hệ Zalo',
     ctaSecondary: 'Xem sản phẩm',
+    ctaSecondaryHref: 'san-pham/',
   },
   about: {
     label: 'VỀ CHÚNG TÔI',
@@ -52,7 +53,7 @@ window.SiteThemes.solar = {
     title: ['SẢN PHẨM'],
     titleAccentIndex: -1,
     desc: '',
-    catalogHref: 'danh-muc-san-pham/',
+    catalogHref: 'san-pham/',
     bg: {
       src: '../assets/backgrounds/bg-products-hero.png',
       overlay: 0.62,
@@ -1323,6 +1324,17 @@ window.SiteThemes.solar = {
   },
   footer: {
     about: 'Solar Miền Nam chuyên cung cấp giải pháp điện năng lượng mặt trời và hệ thống chiếu sáng LED cho hộ gia đình, doanh nghiệp và nhà xưởng.',
-    productLinks: ['Pin năng lượng mặt trời', 'Inverter', 'Pin lưu trữ', 'Đèn LED', 'Đèn đường', 'Đèn nhà xưởng'],
+    productLinks: [
+      { label: 'Pin năng lượng mặt trời', href: 'san-pham/pin-longi-585w/' },
+      { label: 'Inverter', href: 'san-pham/inverter-solis-5kw/' },
+      { label: 'Pin lưu trữ', href: 'san-pham/pin-luu-tru-deye-5kwh/' },
+      { label: 'Tủ điện', href: 'san-pham/tu-dien-suntree/' },
+    ],
+    serviceLinks: [
+      { label: 'Khảo sát công trình', href: 'dich-vu/khao-sat-cong-trinh/' },
+      { label: 'Thiết kế hệ thống', href: 'dich-vu/thiet-ke-he-thong/' },
+      { label: 'Thi công lắp đặt', href: 'dich-vu/thi-cong-lap-dat/' },
+      { label: 'Bảo trì định kỳ', href: 'dich-vu/bao-tri-dinh-ky/' },
+    ],
   },
 };

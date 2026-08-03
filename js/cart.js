@@ -209,7 +209,7 @@ window.SolarCart = (() => {
         <div class="mini-cart__empty">
           <p>Giỏ hàng trống.</p>
           <p class="mini-cart__hint">Thêm sản phẩm quan tâm để gửi yêu cầu báo giá.</p>
-          <a href="${href('danh-muc-san-pham/')}" class="mini-cart__link">Xem sản phẩm</a>
+          <a href="${href('san-pham/')}" class="mini-cart__link">Xem sản phẩm</a>
         </div>`;
       footer.innerHTML = '';
       footer.hidden = true;
@@ -406,6 +406,13 @@ window.SolarCart = (() => {
     eventsBound = true;
 
     document.addEventListener('click', (e) => {
+      const buyBtn = e.target.closest('[data-cart-buy]');
+      if (buyBtn) {
+        handleAddClick(buyBtn, e);
+        const dest = buyBtn.getAttribute('data-quote-href') || href('gio-hang/#bao-gia');
+        window.setTimeout(() => { location.href = dest; }, 280);
+        return;
+      }
       const addBtn = e.target.closest('[data-cart-add]');
       if (addBtn) {
         handleAddClick(addBtn, e);
@@ -468,38 +475,90 @@ window.SolarCart = (() => {
     return { openMini, closeMini, syncUI };
   }
 
-  function quoteFormHTML(idPrefix) {
+  function quoteFormHTML(idPrefix, estimateTotal) {
     const types = PROJECT_TYPES.map((t) =>
       `<label class="quote-type"><input type="radio" name="projectType" value="${esc(t)}" ${t === 'Nhà ở' ? 'checked' : ''}/><span>${esc(t)}</span></label>`
     ).join('');
 
     return `
-      <form class="quote-form" id="${idPrefix}-form" novalidate>
-        <h2 class="cart-summary__title" id="bao-gia">Thông tin khách hàng</h2>
-        <p class="quote-form__lead">Điền thông tin để nhận báo giá &amp; tư vấn kỹ thuật. Không thanh toán trực tuyến.</p>
-        <label>Họ và tên *
-          <input type="text" name="name" required autocomplete="name" />
-        </label>
-        <label>Số điện thoại *
-          <input type="tel" name="phone" required autocomplete="tel" />
-        </label>
-        <label>Email
-          <input type="email" name="email" autocomplete="email" />
-        </label>
-        <label>Địa chỉ *
-          <textarea name="address" rows="2" required autocomplete="street-address"></textarea>
-        </label>
-        <label>Tên công trình
-          <input type="text" name="projectName" placeholder="VD: Biệt thự Bình Dương" />
-        </label>
-        <fieldset class="quote-form__types">
-          <legend>Loại công trình</legend>
-          <div class="quote-types">${types}</div>
-        </fieldset>
-        <label>Nội dung
-          <textarea name="message" rows="4" placeholder="Nhu cầu công suất, thời gian lắp đặt, ghi chú…"></textarea>
-        </label>
-        <button type="submit" class="cart-btn cart-btn--primary cart-btn--block">GỬI YÊU CẦU BÁO GIÁ</button>
+      <form class="quote-form quote-form--pnj" id="${idPrefix}-form" novalidate>
+        <section class="quote-section" id="bao-gia">
+          <div class="quote-section__head">
+            <h2 class="quote-section__title">Thông tin người mua</h2>
+          </div>
+          <div class="quote-salutation">
+            <label class="quote-radio"><input type="radio" name="salutation" value="Chị" checked /><span>Chị</span></label>
+            <label class="quote-radio"><input type="radio" name="salutation" value="Anh" /><span>Anh</span></label>
+          </div>
+          <div class="quote-grid">
+            <label>Họ và tên *
+              <input type="text" name="name" required autocomplete="name" placeholder="Họ và tên *" />
+            </label>
+            <label>Số điện thoại *
+              <input type="tel" name="phone" required autocomplete="tel" placeholder="Số điện thoại *" />
+            </label>
+            <label>Email
+              <input type="email" name="email" autocomplete="email" placeholder="Email" />
+            </label>
+            <label>Tên công trình
+              <input type="text" name="projectName" placeholder="VD: Biệt thự Bình Dương" />
+            </label>
+          </div>
+          <label>Địa chỉ *
+            <textarea name="address" rows="2" required autocomplete="street-address" placeholder="Nhập địa chỉ khách hàng"></textarea>
+          </label>
+          <fieldset class="quote-form__types">
+            <legend>Loại công trình</legend>
+            <div class="quote-types">${types}</div>
+          </fieldset>
+        </section>
+
+        <section class="quote-section">
+          <h2 class="quote-section__title">Hình thức hỗ trợ</h2>
+          <div class="quote-fulfill" role="radiogroup" aria-label="Hình thức hỗ trợ">
+            <label class="quote-fulfill__card is-selected">
+              <input type="radio" name="fulfillment" value="survey" checked />
+              <span class="quote-fulfill__icon quote-fulfill__icon--survey" aria-hidden="true">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h11v10H3V7zm11 3h4l3 3v4h-7V10z"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/></svg>
+              </span>
+              <span class="quote-fulfill__text">
+                <strong>Khảo sát tại công trình</strong>
+                <small>Miễn phí · Tư vấn phương án tại chỗ</small>
+              </span>
+            </label>
+            <label class="quote-fulfill__card">
+              <input type="radio" name="fulfillment" value="call" />
+              <span class="quote-fulfill__icon quote-fulfill__icon--call" aria-hidden="true">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>
+              </span>
+              <span class="quote-fulfill__text">
+                <strong>Tư vấn qua điện thoại</strong>
+                <small>Nhận báo giá sơ bộ nhanh</small>
+              </span>
+            </label>
+          </div>
+        </section>
+
+        <section class="quote-section">
+          <h2 class="quote-section__title">Tóm tắt yêu cầu</h2>
+          <div class="quote-totals">
+            <div class="quote-totals__row"><span>Tạm tính</span><strong>${formatMoney(estimateTotal || 0)}</strong></div>
+            <div class="quote-totals__row"><span>Khảo sát / tư vấn</span><strong>Miễn phí</strong></div>
+            <div class="quote-totals__row quote-totals__row--total">
+              <span>Tổng tham khảo</span><strong>${formatMoney(estimateTotal || 0)}</strong>
+            </div>
+            <p class="quote-totals__note">(Giá tham khảo — báo giá chính thức sau khảo sát. Không thanh toán online.)</p>
+          </div>
+        </section>
+
+        <section class="quote-section">
+          <h2 class="quote-section__title">Ghi chú đơn hàng</h2>
+          <label class="quote-note-label">
+            <textarea name="message" rows="4" placeholder="Vui lòng ghi chú thêm để chúng tôi hỗ trợ tốt nhất (công suất, thời gian lắp đặt…)"></textarea>
+          </label>
+        </section>
+
+        <button type="submit" class="cart-btn cart-btn--primary cart-btn--block quote-submit">GỬI YÊU CẦU BÁO GIÁ</button>
       </form>`;
   }
 
@@ -535,12 +594,14 @@ window.SolarCart = (() => {
         at: new Date().toISOString(),
         type: 'quote',
         customer: {
+          salutation: String(fd.get('salutation') || '').trim(),
           name,
           phone,
           email: String(fd.get('email') || '').trim(),
           address,
           projectName: String(fd.get('projectName') || '').trim(),
           projectType: String(fd.get('projectType') || '').trim(),
+          fulfillment: String(fd.get('fulfillment') || '').trim(),
           message: String(fd.get('message') || '').trim(),
         },
         items: getItems(),
@@ -566,9 +627,9 @@ window.SolarCart = (() => {
         <div class="quote-success">
           <div class="quote-success__icon" aria-hidden="true">✓</div>
           <h1>Cảm ơn Quý khách.</h1>
-          <p>Solar Miền Nam đã nhận được yêu cầu.</p>
+          <p>Chúng tôi đã nhận được yêu cầu báo giá.</p>
           <p class="quote-success__sub">Chuyên viên sẽ liên hệ trong vòng <strong>30 phút</strong>.</p>
-          <a href="${href('danh-muc-san-pham/')}" class="cart-btn cart-btn--primary">Tiếp tục xem sản phẩm</a>
+          <a href="${href('san-pham/')}" class="cart-btn cart-btn--primary">Tiếp tục xem sản phẩm</a>
         </div>`;
     }
 
@@ -582,35 +643,37 @@ window.SolarCart = (() => {
 
       if (!items.length) {
         root.innerHTML = `
-          <div class="cart-page__empty">
+          <div class="cart-page__empty checkout-card">
             <h1>Giỏ hàng</h1>
             <p>Chưa có sản phẩm nào. Thêm sản phẩm quan tâm để gửi yêu cầu báo giá.</p>
-            <a class="cart-btn cart-btn--primary" href="${href('danh-muc-san-pham/')}">Xem danh mục sản phẩm</a>
+            <a class="cart-btn cart-btn--primary" href="${href('san-pham/')}">Xem danh mục sản phẩm</a>
           </div>`;
         return;
       }
 
       const count = getCount();
+      const subtotal = getSubtotal();
       root.innerHTML = `
-        <div class="cart-page__head">
-          <h1 class="cart-page__title">Giỏ hàng</h1>
-          <p class="cart-page__subtitle">Danh sách sản phẩm quan tâm · Gửi yêu cầu báo giá (không thanh toán online)</p>
-        </div>
-        <div class="cart-page__layout cart-page__layout--quote">
-          <div class="cart-page__list">
+        <div class="checkout-card">
+          <div class="checkout-card__top">
+            <a href="${href('san-pham/')}" class="checkout-back">‹ Quay lại</a>
+            <h1 class="checkout-card__title">Thông tin đặt hàng</h1>
+          </div>
+          <p class="checkout-card__lead">Danh sách sản phẩm quan tâm · Gửi yêu cầu báo giá (không thanh toán online)</p>
+
+          <div class="checkout-products">
             ${items.map((item) => {
               const line = (Number(item.price) || 0) * (Number(item.qty) || 0);
               const code = item.code || item.id || '';
               return `
-              <article class="cart-line" data-id="${esc(item.id)}">
-                <div class="cart-line__media">
-                  <img src="${esc(item.image)}" alt="${esc(item.name)}" width="96" height="96" />
+              <article class="checkout-line" data-id="${esc(item.id)}">
+                <div class="checkout-line__media">
+                  <img src="${esc(item.image)}" alt="${esc(item.name)}" width="72" height="72" />
                 </div>
-                <div class="cart-line__main">
-                  <h2 class="cart-line__name">${esc(item.name)}</h2>
-                  ${code ? `<p class="cart-line__code">Mã: ${esc(code)}</p>` : ''}
-                  ${item.brand ? `<p class="cart-line__brand">${esc(item.brand)}</p>` : ''}
-                  <div class="cart-line__controls">
+                <div class="checkout-line__main">
+                  <h2 class="checkout-line__name">${esc(item.name)}</h2>
+                  ${code ? `<p class="checkout-line__code">Mã: ${esc(code)}</p>` : ''}
+                  <div class="checkout-line__controls">
                     <div class="mini-cart__qty" role="group" aria-label="Số lượng">
                       <button type="button" data-page-qty="-1" data-id="${esc(item.id)}" aria-label="Giảm">−</button>
                       <span>${esc(item.qty)}</span>
@@ -619,26 +682,36 @@ window.SolarCart = (() => {
                     <button type="button" class="cart-line__remove" data-page-remove="${esc(item.id)}">Xóa</button>
                   </div>
                 </div>
-                <div class="cart-line__total">
-                  <span class="cart-line__total-label">Thành tiền</span>
-                  ${formatMoney(line)}
+                <div class="checkout-line__price">
+                  <span>Đơn giá:</span>
+                  <strong>${formatMoney(line)}</strong>
                 </div>
               </article>`;
             }).join('')}
             <div class="cart-page__meta">
               <span>Tổng sản phẩm: <strong>${count}</strong></span>
-              <a href="${href('danh-muc-san-pham/')}" class="cart-page__continue">← Tiếp tục xem sản phẩm</a>
+              <a href="${href('san-pham/')}" class="cart-page__continue">← Tiếp tục xem sản phẩm</a>
             </div>
           </div>
-          <aside class="cart-summary cart-summary--quote" id="quote-panel">
-            ${quoteFormHTML('quote')}
-          </aside>
+
+          <div class="checkout-form-wrap" id="quote-panel">
+            ${quoteFormHTML('quote', subtotal)}
+          </div>
         </div>`;
 
-      bindQuoteForm(document.getElementById('quote-form'), () => {
+      const form = document.getElementById('quote-form');
+      bindQuoteForm(form, () => {
         submitted = true;
         renderSuccess();
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      form?.querySelectorAll('.quote-fulfill__card').forEach((card) => {
+        const input = card.querySelector('input');
+        input?.addEventListener('change', () => {
+          form.querySelectorAll('.quote-fulfill__card').forEach((c) => c.classList.remove('is-selected'));
+          if (input.checked) card.classList.add('is-selected');
+        });
       });
 
       if (location.hash === '#bao-gia') {

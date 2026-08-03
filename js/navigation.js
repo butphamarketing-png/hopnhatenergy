@@ -83,9 +83,21 @@ const SectionNav = (() => {
     });
 
     document.querySelectorAll('.nav-link, .mobile-link, .side-menu-link').forEach((link) => {
-      const href = link.getAttribute('href') || '';
-      const target = href.startsWith('#') ? href.slice(1) : '';
-      link.classList.toggle('is-active', target === sectionId);
+      const href = (link.getAttribute('href') || '').replace(/^\.\//, '');
+      const dataSec = link.getAttribute('data-section') || '';
+      let active = false;
+
+      if (href.startsWith('#section-')) {
+        active = href.slice(1) === sectionId;
+      } else if (dataSec === '01' || href === '' || href === './' || href === 'index.html') {
+        // Trang chủ — active only on hero
+        active = sectionId === 'section-01';
+      } else {
+        // Separate pages (gioi-thieu/, san-pham/) — not active while browsing homepage
+        active = false;
+      }
+
+      link.classList.toggle('is-active', active);
     });
 
     applyTheme(sectionId);

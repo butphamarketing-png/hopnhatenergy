@@ -36,16 +36,6 @@
   .projects-inner,
   .services-inner,
   .news-inner,
-  .contact-inner {
-    height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-    box-sizing: border-box !important;
-    padding-top: calc(var(--vf-header) + clamp(28px, 4vh, 48px)) !important;
-    padding-bottom: clamp(48px, 7vh, 88px) !important;
-    padding-left: var(--vf-pad-left) !important;
-    padding-right: var(--vf-pad-x) !important;
-  }
 }
 
 /* ---------- Shared type rhythm ---------- */
@@ -56,11 +46,6 @@
   .projects-label,
   .services-label,
   .news-label,
-  .contact-label {
-    margin: 0 !important;
-    font-size: var(--vf-label) !important;
-    letter-spacing: 0.18em !important;
-  }
 
   .fp-section.about .about-label {
     margin: 0 0 18px !important;
@@ -103,24 +88,11 @@
   .projects-title,
   .services-title,
   .news-title,
-  .contact-title {
-    margin-top: 12px !important;
-    margin-bottom: 0 !important;
-    font-size: var(--vf-heading) !important;
-    line-height: 1.22 !important;
-  }
 
   .products-desc,
   .projects-desc,
   .services-desc,
   .news-desc,
-  .contact-desc {
-    margin-top: 12px !important;
-    margin-bottom: 0 !important;
-    font-size: var(--vf-desc) !important;
-    line-height: 1.5 !important;
-    max-width: 540px !important;
-  }
 
   .products-head,
   .projects-head {
@@ -346,138 +318,7 @@
   }
 }
 
-/* ---------- Contact: fit form + glass in one screen ---------- */
-
-@media (min-width: 768px) {
-  .contact-inner {
-    gap: clamp(28px, 4vw, 56px) !important;
-    align-items: center !important;
-  }
-
-  .contact-glass {
-    padding: 22px 24px !important;
-    border-radius: 24px !important;
-  }
-
-  .contact-benefits {
-    margin-top: 12px !important;
-    gap: 6px !important;
-  }
-
-  .contact-benefits li {
-    font-size: 12px !important;
-  }
-
-  .contact-benefits__icon {
-    width: 18px !important;
-    height: 18px !important;
-    font-size: 10px !important;
-  }
-
-  .contact-info {
-    margin-top: 12px !important;
-    gap: 8px !important;
-  }
-
-  .contact-info__card {
-    padding: 8px 10px !important;
-    border-radius: 12px !important;
-  }
-
-  .contact-info__icon {
-    width: 30px !important;
-    height: 30px !important;
-    border-radius: 8px !important;
-  }
-
-  .contact-info__label {
-    font-size: 9px !important;
-  }
-
-  .contact-info__value {
-    font-size: 11px !important;
-  }
-
-  .contact-social {
-    margin-top: 12px !important;
-    gap: 8px !important;
-  }
-
-  .contact-social a {
-    width: 40px !important;
-    height: 40px !important;
-  }
-
-  .contact-form,
-  .contact-success {
-    padding: 22px 24px !important;
-    border-radius: 22px !important;
-  }
-
-  .contact-form__title {
-    margin-bottom: 12px !important;
-    font-size: 0.9rem !important;
-  }
-
-  .contact-form__fields {
-    gap: 8px 12px !important;
-  }
-
-  .contact-form__field label {
-    margin-bottom: 4px !important;
-    font-size: 11px !important;
-  }
-
-  .contact-form input[type="text"],
-  .contact-form input[type="tel"],
-  .contact-form input[type="email"],
-  .contact-form select {
-    height: 42px !important;
-    padding: 0 14px !important;
-    border-radius: 10px !important;
-    font-size: 13px !important;
-  }
-
-  .contact-form textarea {
-    height: 64px !important;
-    min-height: 64px !important;
-    padding: 10px 14px !important;
-    border-radius: 10px !important;
-  }
-
-  .contact-form__submit {
-    height: 48px !important;
-    margin-top: 10px !important;
-    border-radius: 12px !important;
-  }
-
-  .contact-form__error {
-    font-size: 11px !important;
-    margin-top: 2px !important;
-  }
-
-  .contact-form__consent label {
-    font-size: 12px !important;
-  }
-
-  .contact-bg__silhouette {
-    height: min(100px, 14vh) !important;
-    opacity: 0.12 !important;
-  }
-}
-
-/* Hide long address wrap pressure on short contact */
-@media (min-width: 768px) and (max-height: 860px) {
-  .contact-benefits {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 6px 10px !important;
-  }
-
-  .contact-info {
-    grid-template-columns: 1fr 1fr !important;
-  }
-}
+/* Contact overrides removed — see contact.css */
 
 /* ---------- Progressive scale-down by viewport height ---------- */
 
@@ -543,54 +384,6 @@
   .svc-card__media {
     height: clamp(100px, 16vh, 140px) !important;
   }
-
-  .contact-glass {
-    padding: 14px 16px !important;
-  }
-
-  .contact-form {
-    padding: 14px 16px !important;
-  }
-
-  .contact-form input[type="text"],
-  .contact-form input[type="tel"],
-  .contact-form input[type="email"],
-  .contact-form select {
-    height: 36px !important;
-  }
-
-  .contact-form textarea {
-    height: 48px !important;
-    min-height: 48px !important;
-  }
-
-  .contact-form__submit {
-    height: 42px !important;
-    margin-top: 8px !important;
-  }
-
-  .contact-social a {
-    width: 34px !important;
-    height: 34px !important;
-  }
-
-  .contact-benefits {
-    display: none !important;
-  }
-
-  .contact-info {
-    margin-top: 8px !important;
-  }
-
-  .contact-form__title {
-    margin-bottom: 8px !important;
-    font-size: 0.82rem !important;
-  }
-
-  .contact-inner {
-    gap: 24px !important;
-  }
-
   .projects-grid {
     gap: 10px !important;
   }
@@ -614,12 +407,6 @@
     display: none !important;
   }
 
-  .contact-desc {
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden !important;
-  }
 
   .fp-section.about .about-features {
     grid-template-columns: 1fr 1fr !important;
@@ -653,27 +440,6 @@
   .svc-card__media {
     height: clamp(160px, 22vh, 220px) !important;
   }
-
-  .contact-glass,
-  .contact-form {
-    padding: 28px 30px !important;
-  }
-
-  .contact-form input[type="text"],
-  .contact-form input[type="tel"],
-  .contact-form input[type="email"],
-  .contact-form select {
-    height: 48px !important;
-  }
-
-  .contact-form textarea {
-    height: 80px !important;
-    min-height: 80px !important;
-  }
-
-  .contact-form__submit {
-    height: 50px !important;
-  }
 }
 
 /* Tablet: allow taller / scroll if needed */
@@ -687,12 +453,8 @@
   .products-inner,
   .projects-inner,
   .services-inner,
-  .news-inner,
-  .contact-inner {
-    height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-    min-height: 0 !important;
+  .news-inner {
+    overflow: visible;
   }
 }
 

@@ -151,6 +151,90 @@ const PageRender = (() => {
     const firstProjectSlug = (theme.projects.items[0] && theme.projects.items[0].slug) || '';
     const projectMetaLabel = theme.projectMetaLabel || 'Công suất';
 
+    function navHref(id) {
+      if (!hasPages) return `#section-${id}`;
+      if (id === '01') return './';
+      if (id === '02') return 'gioi-thieu/';
+      if (id === '03') return 'san-pham/';
+      if (id === '04') return 'dich-vu/';
+      if (id === '05') return 'du-an/';
+      if (id === '06') return 'khach-hang/';
+      if (id === '07') return 'tin-tuc/';
+      return `#section-${id}`;
+    }
+
+    const productCats = ((theme.products && theme.products.categories) || []).filter((c) => c.id && c.id !== 'all');
+    const productItems = (theme.products && theme.products.items) || [];
+
+    const productsDropdown = hasPages
+      ? `<div class="nav-drop" role="menu">
+          <a href="san-pham/" class="nav-drop__all">Tất cả sản phẩm</a>
+          <ul class="nav-drop__list">
+            ${productCats.map((cat) => {
+              const kids = productItems.filter((p) => p.category === cat.id).slice(0, 6);
+              return `<li class="nav-drop__item">
+                <a href="san-pham/?cat=${esc(cat.id)}" class="nav-drop__cat">${esc(cat.label)}</a>
+                ${kids.length ? `<ul class="nav-drop__sub">
+                  ${kids.map((p) => `<li><a href="san-pham/${esc(p.slug)}/">${esc(p.name)}</a></li>`).join('')}
+                  <li><a class="nav-drop__more" href="san-pham/?cat=${esc(cat.id)}">Xem tất cả →</a></li>
+                </ul>` : ''}
+              </li>`;
+            }).join('')}
+          </ul>
+        </div>`
+      : '';
+
+    const projectItems = (theme.projects && theme.projects.items) || [];
+    const projectsDropdown = hasPages
+      ? `<div class="nav-drop" role="menu">
+          <a href="du-an/" class="nav-drop__all">Tất cả dự án</a>
+          <ul class="nav-drop__list">
+            ${projectItems.map((p) => `
+              <li class="nav-drop__item">
+                <a href="du-an/${esc(p.slug)}/" class="nav-drop__cat">${esc(p.title)}</a>
+              </li>`).join('')}
+          </ul>
+        </div>`
+      : '';
+
+    const navLinks = nav.map(([id, label], i) => {
+      const href = navHref(id);
+      if (id === '03' && hasPages) {
+        return `<div class="nav-item nav-item--products">
+          <a href="${href}" class="nav-link nav-link--drop${i === 0 ? ' is-active' : ''}" data-section="${id}" aria-haspopup="true">${esc(label)}</a>
+          ${productsDropdown}
+        </div>`;
+      }
+      if (id === '05' && hasPages) {
+        return `<div class="nav-item nav-item--products">
+          <a href="${href}" class="nav-link nav-link--drop${i === 0 ? ' is-active' : ''}" data-section="${id}" aria-haspopup="true">${esc(label)}</a>
+          ${projectsDropdown}
+        </div>`;
+      }
+      return `<a href="${href}" class="nav-link${i === 0 ? ' is-active' : ''}" data-section="${id}">${esc(label)}</a>`;
+    }).join('');
+
+    const sideLinks = nav.map(([id, label]) => {
+      const href = navHref(id);
+      if (id === '03' && hasPages) {
+        return `<div class="side-menu-group">
+          <a href="${href}" class="side-menu-link" data-section="${id}">${esc(label)}</a>
+          <ul class="side-menu-sub">
+            ${productCats.map((cat) => `<li><a href="san-pham/?cat=${esc(cat.id)}">${esc(cat.label)}</a></li>`).join('')}
+          </ul>
+        </div>`;
+      }
+      if (id === '05' && hasPages) {
+        return `<div class="side-menu-group">
+          <a href="${href}" class="side-menu-link" data-section="${id}">${esc(label)}</a>
+          <ul class="side-menu-sub">
+            ${projectItems.map((p) => `<li><a href="du-an/${esc(p.slug)}/">${esc(p.title)}</a></li>`).join('')}
+          </ul>
+        </div>`;
+      }
+      return `<a href="${href}" class="side-menu-link" data-section="${id}">${esc(label)}</a>`;
+    }).join('');
+
     const aboutAccent = theme.about.titleAccentIndex ?? 1;
     const aboutTitleLines = (theme.about.titleLines || []).map((line, i) => {
       const accentCls = i === aboutAccent ? ' about-title__line--accent' : '';
@@ -172,22 +256,16 @@ const PageRender = (() => {
       : '';
 
     const aboutCta = theme.about.cta
-      ? `<a href="${esc(theme.about.ctaHref || '#section-03')}" class="about-cta"><span>${esc(theme.about.cta)}</span><span class="about-cta__arrow" aria-hidden="true">→</span></a>`
+      ? `<a href="${esc(theme.about.ctaHref || 'gioi-thieu/')}" class="about-cta"><span>${esc(theme.about.cta)}</span><span class="about-cta__arrow" aria-hidden="true">→</span></a>`
       : '';
-
-    const knownProductSlugs = new Set([
-      'pin-longi-585w', 'inverter-solis-5kw', 'pin-luu-tru-deye-5kwh',
-      'tu-dien-suntree', 'cap-dc-cadivi', 'khung-gia-do-vrock',
-      'den-led-panel-48w', 'den-led-am-tran-12w', 'den-led-nha-xuong-150w',
-      'den-led-pha-200w', 'den-led-duong-120w', 'den-led-nang-luong-mat-troi-60w',
-    ]);
 
     const cartIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/><path d="M9 11h6"/></svg>';
 
     const products = theme.products.items.map((p) => {
       const slug = p.slug || String(p.name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-      const hasDetail = hasPages && knownProductSlugs.has(slug);
-      const detailHref = hasDetail ? `san-pham/${esc(slug)}/` : (theme.products.catalogHref || 'danh-muc-san-pham/');
+      const detailHref = hasPages
+        ? `san-pham/${esc(slug)}/`
+        : (theme.products.catalogHref || 'san-pham/');
       const price = Number(p.price) || 0;
       const fmt = (n) => `${new Intl.NumberFormat('vi-VN').format(n)}<span class="product-card__currency">₫</span>`;
       const code = p.code || slug;
@@ -358,49 +436,31 @@ const PageRender = (() => {
       </li>`;
     }).join('');
 
-    const navLinks = nav.map(([id, label], i) =>
-      `<a href="#section-${id}" class="nav-link${i === 0 ? ' is-active' : ''}" data-section="${id}">${label}</a>`
-    ).join('');
-
-    const sideLinks = nav.map(([id, label]) =>
-      `<a href="#section-${id}" class="side-menu-link" data-section="${id}">${label}</a>`
-    ).join('');
-
-    const footerProducts = theme.id === 'solar'
-      ? `<li><a href="danh-muc-san-pham/">Danh mục sản phẩm</a></li>
+    const footer = theme.footer || {};
+    const footerProductExtras = (footer.productLinks || []).slice(0, 4).map((l) => {
+      if (typeof l === 'object' && l.href) return `<li><a href="${esc(l.href)}">${esc(l.label)}</a></li>`;
+      return `<li><a href="san-pham/">${esc(l)}</a></li>`;
+    }).join('');
+    const footerProducts = `<li><a href="san-pham/">Danh mục sản phẩm</a></li>
          <li><a href="gio-hang/">Giỏ hàng</a></li>
-         <li><a href="san-pham/pin-longi-585w/">Pin năng lượng mặt trời</a></li>
-         <li><a href="san-pham/inverter-solis-5kw/">Inverter</a></li>
-         <li><a href="san-pham/pin-luu-tru-deye-5kwh/">Pin lưu trữ</a></li>
-         <li><a href="#section-03">Xem tất cả sản phẩm</a></li>`
-      : (() => {
-          const links = theme.footer.productLinks || [];
-          const extras = links.slice(0, 4).map((l) => {
-            if (typeof l === 'object' && l.href) return `<li><a href="${esc(l.href)}">${esc(l.label)}</a></li>`;
-            return `<li><a href="#section-03">${esc(l)}</a></li>`;
-          }).join('');
-          return `<li><a href="danh-muc-san-pham/">Danh mục sản phẩm</a></li>
-         <li><a href="gio-hang/">Giỏ hàng</a></li>
-         ${extras}
-         <li><a href="#section-03">Xem tất cả sản phẩm</a></li>`;
-        })();
+         ${footerProductExtras}
+         <li><a href="san-pham/">Xem tất cả sản phẩm</a></li>`;
 
     const footerMidTitle = 'Dịch vụ';
-    const footerMidLinks = theme.id === 'solar'
+    const footerServiceLinks = footer.serviceLinks || [];
+    const footerMidLinks = footerServiceLinks.length
       ? `<li><a href="dich-vu/">Tất cả dịch vụ</a></li>
-         <li><a href="dich-vu/khao-sat-cong-trinh/">Khảo sát công trình</a></li>
-         <li><a href="dich-vu/thiet-ke-he-thong/">Thiết kế hệ thống</a></li>
-         <li><a href="dich-vu/thi-cong-lap-dat/">Thi công lắp đặt</a></li>
+         ${footerServiceLinks.slice(0, 4).map((l) => {
+           if (typeof l === 'object' && l.href) return `<li><a href="${esc(l.href)}">${esc(l.label)}</a></li>`;
+           return `<li><a href="dich-vu/">${esc(l)}</a></li>`;
+         }).join('')}
          <li><a href="tin-tuc/">Tin tức</a></li>`
-      : (theme.footer.serviceLinks?.length
-        ? theme.footer.serviceLinks.map((l) => {
-            if (typeof l === 'object' && l.href) return `<li><a href="${esc(l.href)}">${esc(l.label)}</a></li>`;
-            return `<li><a href="#section-04">${esc(l)}</a></li>`;
-          }).join('')
-        : nav.map(([id, label]) => `<li><a href="#section-${id}">${label}</a></li>`).join(''));
+      : `<li><a href="dich-vu/">Tất cả dịch vụ</a></li>
+         <li><a href="tin-tuc/">Tin tức</a></li>`;
 
     const heroPrimaryHref = theme.hero.ctaPrimaryHref || c.zalo;
     const heroPrimaryExternal = /^https?:/i.test(heroPrimaryHref);
+    const heroSecondaryHref = theme.hero.ctaSecondaryHref || (hasPages ? 'san-pham/' : '#section-03');
 
     return `
   <a class="skip-link" href="#fullpage">Bỏ qua điều hướng</a>
@@ -459,7 +519,7 @@ const PageRender = (() => {
           <p class="hero-desc anim-fade-up anim-delay-1">${esc(theme.hero.desc)}</p>
           <div class="hero-actions anim-fade-up anim-delay-2">
             <a href="${esc(heroPrimaryHref)}"${heroPrimaryExternal ? ' target="_blank" rel="noopener noreferrer"' : ''} class="btn btn-primary">${esc(theme.hero.ctaPrimary)}</a>
-            <a href="#section-03" class="btn btn-outline">${esc(theme.hero.ctaSecondary)}</a>
+            <a href="${esc(heroSecondaryHref)}" class="btn btn-outline">${esc(theme.hero.ctaSecondary)}</a>
           </div>
         </div>
       </div>
@@ -502,7 +562,7 @@ const PageRender = (() => {
         <ul class="products-grid" id="products-grid">${products}</ul>
         <div class="products-foot">
           <nav class="products-pagination" aria-label="Phân trang sản phẩm"></nav>
-          <a href="${esc(theme.products.catalogHref || 'danh-muc-san-pham/')}" class="products-all">XEM TẤT CẢ <span aria-hidden="true">→</span></a>
+          <a href="${esc(theme.products.catalogHref || 'san-pham/')}" class="products-all">XEM TẤT CẢ <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
@@ -614,62 +674,46 @@ const PageRender = (() => {
       </a>
     </section>
 
-    <section id="section-08" class="fp-section contact" data-section="08" aria-label="Liên hệ">
-      <div class="contact-bg" aria-hidden="true">
-        <img src="${esc(theme.contact.bg)}" alt="" class="contact-bg__img" />
-        <div class="contact-bg__overlay"></div>
-        <div class="contact-bg__grad-x"></div>
-        <div class="contact-bg__grad-y"></div>
-        <div class="contact-bg__blur"></div>
-        <div class="contact-bg__glow contact-bg__glow--tl"></div>
-        <div class="contact-bg__glow contact-bg__glow--tr"></div>
-        <div class="contact-bg__glow contact-bg__glow--br"></div>
-        <div class="contact-bg__sun"></div>
-        <div class="contact-bg__flare"></div>
-        <div class="contact-bg__silhouette"></div>
-        <div class="contact-bg__noise"></div>
-      </div>
+    <section id="section-08" class="fp-section contact" data-section="08" data-theme="light" aria-label="Liên hệ">
       <div class="contact-inner">
-        <div class="contact-glass">
-          <div class="contact-glass__shine" aria-hidden="true"></div>
+        <div class="contact-copy">
           <p class="contact-label">${esc(theme.contact.label)}</p>
           <h2 class="contact-title">${titleLinesHtml(theme.contact.title, -1)}</h2>
           <p class="contact-desc">${esc(theme.contact.desc)}</p>
-          <ul class="contact-benefits">
-            ${(theme.contact.benefits || []).map((b) => `
-              <li>
-                <span class="contact-benefits__icon" aria-hidden="true">✓</span>
-                <span>${esc(b)}</span>
-              </li>`).join('')}
-          </ul>
-          <ul class="contact-info">
-            <li class="contact-info__card">
-              <span class="contact-info__icon" aria-hidden="true">${ICONS.phone.replace('width="22"', 'width="18"').replace('height="22"', 'height="18"')}</span>
-              <span class="contact-info__copy"><span class="contact-info__label">Hotline</span><a href="tel:${esc(c.phoneTel)}" class="contact-info__value">${esc(c.phone)}</a></span>
-            </li>
-            <li class="contact-info__card">
-              <span class="contact-info__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg></span>
-              <span class="contact-info__copy"><span class="contact-info__label">Email</span><a href="mailto:${esc(c.email)}" class="contact-info__value">${esc(c.email)}</a></span>
-            </li>
-            <li class="contact-info__card">
-              <span class="contact-info__icon" aria-hidden="true">${ICONS.pin.replace('width="14"', 'width="18"').replace('height="14"', 'height="18"')}</span>
-              <span class="contact-info__copy"><span class="contact-info__label">Địa chỉ</span><span class="contact-info__value">${esc(c.address)}</span></span>
-            </li>
-            <li class="contact-info__card">
-              <span class="contact-info__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-              <span class="contact-info__copy"><span class="contact-info__label">Giờ làm việc</span><span class="contact-info__value">${esc(c.hours || 'Thứ 2 – Thứ 7: 8:00 – 17:30')}</span></span>
-            </li>
-          </ul>
-          ${socialLinksHtml(c)}
+
+          <dl class="contact-lines">
+            <div class="contact-line">
+              <dt>Hotline</dt>
+              <dd><a href="tel:${esc(c.phoneTel)}">${esc(c.phone)}</a></dd>
+            </div>
+            <div class="contact-line">
+              <dt>Email</dt>
+              <dd><a href="mailto:${esc(c.email)}">${esc(c.email)}</a></dd>
+            </div>
+            <div class="contact-line">
+              <dt>Địa chỉ</dt>
+              <dd>${esc(c.address)}</dd>
+            </div>
+            <div class="contact-line">
+              <dt>Giờ làm việc</dt>
+              <dd>${esc(c.hours || 'Thứ 2 – Thứ 7: 8:00 – 17:30')}</dd>
+            </div>
+          </dl>
+
+          <div class="contact-actions">
+            <a class="contact-actions__primary" href="tel:${esc(c.phoneTel)}">Gọi ${esc(c.phone)}</a>
+            <a class="contact-actions__ghost" href="${esc(c.zalo)}" target="_blank" rel="noopener noreferrer">Chat Zalo</a>
+          </div>
         </div>
+
         <div class="contact-panel">
-          <div class="contact-panel__aura" aria-hidden="true"></div>
           <form class="contact-form" data-contact-form novalidate>
-            <h3 class="contact-form__title">${esc((c.form && c.form.title) || 'ĐĂNG KÝ NHẬN TƯ VẤN')}</h3>
+            <h3 class="contact-form__title">${esc((c.form && c.form.title) || 'Đăng ký nhận tư vấn')}</h3>
+            <p class="contact-form__hint">Để lại thông tin, chúng tôi sẽ liên hệ trong ngày làm việc.</p>
             <div class="contact-form__fields">
               <div class="contact-form__field">
-                <label for="contact-name">Tên khách hàng <span>*</span></label>
-                <input id="contact-name" name="name" type="text" required autocomplete="name" placeholder="Họ và tên" />
+                <label for="contact-name">Họ và tên <span>*</span></label>
+                <input id="contact-name" name="name" type="text" required autocomplete="name" placeholder="Nguyễn Văn A" />
                 <p class="contact-form__error" data-error-for="name"></p>
               </div>
               <div class="contact-form__field">
@@ -684,25 +728,25 @@ const PageRender = (() => {
               </div>
               <div class="contact-form__field">
                 <label for="contact-address">Địa chỉ công trình</label>
-                <input id="contact-address" name="address" type="text" autocomplete="street-address" placeholder="Địa chỉ lắp đặt" />
+                <input id="contact-address" name="address" type="text" autocomplete="street-address" placeholder="Quận / Tỉnh thành" />
               </div>
               <div class="contact-form__field contact-form__field--half">
                 <label for="contact-project-type">Loại công trình</label>
                 <select id="contact-project-type" name="projectType">
-                  <option value="">Chọn loại công trình</option>
+                  <option value="">Chọn…</option>
                   ${((c.form && c.form.projectTypes) || []).map((o) => `<option value="${esc(o)}">${esc(o)}</option>`).join('')}
                 </select>
               </div>
               <div class="contact-form__field contact-form__field--half">
                 <label for="contact-need">Nhu cầu</label>
                 <select id="contact-need" name="need">
-                  <option value="">Chọn nhu cầu</option>
+                  <option value="">Chọn…</option>
                   ${((c.form && c.form.needs) || []).map((o) => `<option value="${esc(o)}">${esc(o)}</option>`).join('')}
                 </select>
               </div>
               <div class="contact-form__field contact-form__field--full">
                 <label for="contact-message">Nội dung</label>
-                <textarea id="contact-message" name="message" rows="4" placeholder="Mô tả ngắn nhu cầu của bạn"></textarea>
+                <textarea id="contact-message" name="message" rows="3" placeholder="Mô tả ngắn nhu cầu của bạn"></textarea>
               </div>
               <div class="contact-form__field contact-form__field--full contact-form__consent">
                 <label>
@@ -712,10 +756,9 @@ const PageRender = (() => {
                 <p class="contact-form__error" data-error-for="consent"></p>
               </div>
             </div>
-            <button type="submit" class="contact-form__submit">${esc((c.form && c.form.submit) || 'GỬI YÊU CẦU TƯ VẤN')}</button>
+            <button type="submit" class="contact-form__submit">${esc((c.form && c.form.submit) || 'Gửi yêu cầu tư vấn')}</button>
           </form>
           <div class="contact-success" data-contact-success hidden>
-            <span class="contact-success__icon" aria-hidden="true">✓</span>
             <h3 class="contact-success__title">${esc((c.form && c.form.successTitle) || 'Cảm ơn Quý khách.')}</h3>
             <p class="contact-success__desc">${esc((c.form && c.form.successDesc) || 'Solar Miền Nam sẽ liên hệ trong thời gian sớm nhất.')}</p>
           </div>

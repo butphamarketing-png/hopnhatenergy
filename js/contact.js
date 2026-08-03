@@ -168,13 +168,9 @@ const Contact = (() => {
       return;
     }
 
-    const delay = window.SolarMotion?.TIMING?.entranceDelay ?? 180;
+    const delay = window.SolarMotion?.TIMING?.entranceDelay ?? 120;
     window.setTimeout(() => {
-      root.classList.add('is-bg-in');
-      window.setTimeout(() => root.classList.add('is-glass-in'), 120);
-      window.setTimeout(() => root.classList.add('is-panel-in'), 220);
-      window.setTimeout(() => root.classList.add('is-fields-in'), 380);
-      window.setTimeout(() => root.classList.add('is-btn-in'), 780);
+      root.classList.add('is-bg-in', 'is-glass-in', 'is-panel-in', 'is-fields-in', 'is-btn-in');
     }, delay);
   }
 

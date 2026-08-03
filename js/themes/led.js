@@ -44,6 +44,7 @@ window.SiteThemes.led = {
     desc: 'Chiếu sáng hiện đại, tiết kiệm điện và bền bỉ cho nhà xưởng, văn phòng, khách sạn và đô thị.',
     ctaPrimary: 'Liên hệ Zalo',
     ctaSecondary: 'Xem sản phẩm',
+    ctaSecondaryHref: 'san-pham/',
   },
   about: {
     label: 'VỀ CHÚNG TÔI',
@@ -68,7 +69,7 @@ window.SiteThemes.led = {
     title: ['SẢN PHẨM'],
     titleAccentIndex: -1,
     desc: '',
-    catalogHref: 'danh-muc-san-pham/',
+    catalogHref: 'san-pham/',
     bg: {
       src: 'https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=3840&q=90',
       overlay: 0.9,
@@ -259,6 +260,12 @@ window.SiteThemes.led = {
         area: '12.000m²',
         system: 'Highbay LED',
         image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=85',
+        gallery: [
+          'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=85',
+          'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=85',
+        ],
+        process: ['Khảo sát độ rọi', 'Bố trí highbay', 'Thi công lắp đặt', 'Nghiệm thu'],
+        specs: ['220 đèn highbay', 'Tiết kiệm điện 45–60%', 'BH 3 năm'],
       },
       {
         slug: 'van-phong-quan-1',
@@ -271,6 +278,12 @@ window.SiteThemes.led = {
         area: '2.400m²',
         system: 'Panel LED',
         image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85',
+        gallery: [
+          'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85',
+          'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85',
+        ],
+        process: ['Khảo sát trần', 'Chọn panel CRI cao', 'Lắp đặt & cân chỉnh', 'Bàn giao'],
+        specs: ['480 panel LED', 'CRI ≥ 80', 'BH 3 năm'],
       },
       {
         slug: 'truong-hoc-binh-duong',
@@ -283,6 +296,12 @@ window.SiteThemes.led = {
         area: '8.500m²',
         system: 'Panel + Tube',
         image: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=85',
+        gallery: [
+          'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=85',
+          'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85',
+        ],
+        process: ['Đo độ rọi lớp học', 'Thiết kế chống chói', 'Thi công theo khu', 'Nghiệm thu'],
+        specs: ['360 điểm sáng', 'Chuẩn lớp học', 'BH 3 năm'],
       },
       {
         slug: 'benh-vien-dong-nai',
@@ -295,6 +314,12 @@ window.SiteThemes.led = {
         area: '15.000m²',
         system: 'Medical LED',
         image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=85',
+        gallery: [
+          'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=85',
+          'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85',
+        ],
+        process: ['Khảo sát khu vực y tế', 'Chọn đèn ổn định', 'Lắp đặt theo ca', 'Kiểm tra vận hành'],
+        specs: ['620 điểm sáng', 'Ánh sáng ổn định', 'BH 3 năm'],
       },
       {
         slug: 'khach-san-resort-nha-trang',
@@ -307,11 +332,16 @@ window.SiteThemes.led = {
         area: 'Resort 5*',
         system: 'Decorative LED',
         image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85',
+        gallery: [
+          'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85',
+          'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=85',
+        ],
+        process: ['Concept ánh sáng', 'Thiết kế scene', 'Thi công & dựng scene', 'Fine-tune ban đêm'],
+        specs: ['850 điểm sáng', 'Trang trí + chức năng', 'BH 2–3 năm'],
       },
     ],
   },
-  services: {
-    label: 'DỊCH VỤ',
+  services: {    label: 'DỊCH VỤ',
     title: ['DỊCH VỤ HỆ THỐNG ', 'ĐÈN LED'],
     titleAccentIndex: 1,
     desc: 'ĐỒNG HÀNH CÙNG BẠN TỪ KHÂU TƯ VẤN ĐẾN BẢO TRÌ HỆ THỐNG',
@@ -330,6 +360,8 @@ window.SiteThemes.led = {
         text: 'Phân tích nhu cầu không gian, mức độ rọi và ngân sách để đề xuất giải pháp phù hợp.',
         icon: 'search',
         image: 'https://images.unsplash.com/photo-1556745753-b2904692b3cd?auto=format&fit=crop&w=1200&q=85',
+        process: ['Khảo sát hiện trạng', 'Đo đạc & phân tích', 'Đề xuất phương án'],
+        advantages: ['Chính xác kỹ thuật', 'Tối ưu chi phí', 'Phù hợp ngân sách'],
       },
       {
         slug: 'thiet-ke-he-thong-den',
@@ -338,6 +370,8 @@ window.SiteThemes.led = {
         text: 'Bố trí điểm sáng, chọn công suất và mô phỏng hiệu quả chiếu sáng trước thi công.',
         icon: 'design',
         image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=85',
+        process: ['Mô phỏng độ rọi', 'Bố trí điểm sáng', 'Hồ sơ kỹ thuật'],
+        advantages: ['Thiết kế chuẩn', 'Giảm chói', 'Dễ thi công'],
       },
       {
         slug: 'thi-cong-lap-dat',
@@ -346,6 +380,8 @@ window.SiteThemes.led = {
         text: 'Lắp đặt đúng tiêu chuẩn kỹ thuật, an toàn điện và đúng tiến độ bàn giao.',
         icon: 'build',
         image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1200&q=85',
+        process: ['Chuẩn bị vật tư', 'Lắp đặt & đấu nối', 'QC từng hạng mục'],
+        advantages: ['An toàn điện', 'Đúng tiến độ', 'QC rõ ràng'],
       },
       {
         slug: 'bao-tri-he-thong',
@@ -354,6 +390,8 @@ window.SiteThemes.led = {
         text: 'Kiểm tra, vệ sinh và thay thế linh kiện theo lịch để duy trì hiệu suất.',
         icon: 'maintain',
         image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=85',
+        process: ['Kiểm tra định kỳ', 'Vệ sinh & thay thế', 'Báo cáo hiệu suất'],
+        advantages: ['Duy trì độ sáng', 'Phát hiện sớm sự cố', 'Kéo dài tuổi thọ'],
       },
       {
         slug: 'nang-cap-den-led',
@@ -362,6 +400,8 @@ window.SiteThemes.led = {
         text: 'Thay thế hệ thống cũ bằng LED hiệu suất cao, giảm chi phí điện ngay.',
         icon: 'bulb',
         image: 'https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=1200&q=85',
+        process: ['Đánh giá hệ thống cũ', 'Lựa chọn LED thay thế', 'Thi công chuyển đổi'],
+        advantages: ['Tiết kiệm điện ngay', 'Ít gián đoạn vận hành', 'Bảo hành rõ ràng'],
       },
       {
         slug: 'tiet-kiem-dien',
@@ -370,6 +410,8 @@ window.SiteThemes.led = {
         text: 'Tối ưu vận hành, cảm biến và lịch chiếu sáng để giảm hóa đơn điện.',
         icon: 'save',
         image: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=85',
+        process: ['Phân tích tiêu thụ', 'Cài cảm biến & lịch', 'Theo dõi hiệu quả'],
+        advantages: ['Giảm hóa đơn', 'Tự động hóa', 'Minh bạch số liệu'],
       },
     ],
     ctaTitle: 'Bạn cần nâng cấp hệ thống chiếu sáng LED?',

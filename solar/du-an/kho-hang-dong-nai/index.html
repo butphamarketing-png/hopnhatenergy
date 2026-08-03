@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html lang="vi" data-theme="led">
+<html lang="vi" data-theme="solar">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>D? �n LED | Solar Mi?n Nam</title>
+  <meta name="description" content="Chi tiết dự án — Solar Miền Nam." />
+  <title>Dự án | Solar Miền Nam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script src="../../../js/themes/led.js"></script>
+  <script src="../../../js/themes/solar.js"></script>
   <link rel="stylesheet" href="../../../css/tokens.css" />
   <link rel="stylesheet" href="../../../css/project-pages.css" />
-  <link rel="stylesheet" href="../../../css/led.css" />
 </head>
 <body>
   <header class="pj-top">
-    <a href="../../">? Trang ch?</a>
-    <a href="../../#section-05">D? �n</a>
+    <a href="../../">← Trang chủ</a>
+    <a href="../">Tất cả dự án</a>
   </header>
-  <div id="pj-detail"></div>
+  <article id="pj-detail" class="pj-article"></article>
   <script src="../../../js/project-pages.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener('DOMContentLoaded', function () {
       window.SolarProjectPages && window.SolarProjectPages.mountDetail();
     });
   </script>

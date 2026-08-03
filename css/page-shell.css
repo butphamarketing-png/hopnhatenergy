@@ -1,0 +1,135 @@
+/* Shared inner pages: gioi-thieu, etc. */
+:root {
+  --primary: #F97316;
+  --primary-hover: #ea6a0c;
+  --dark: #111827;
+  --muted: #6B7280;
+}
+
+[data-theme="led"] {
+  --primary: #0B3D91;
+  --primary-hover: #082e6e;
+}
+
+* { box-sizing: border-box; }
+
+.page-shell {
+  margin: 0;
+  font-family: "Be Vietnam Pro", system-ui, sans-serif;
+  color: var(--dark);
+  background: #f7f8fa;
+  line-height: 1.65;
+  font-synthesis: none;
+}
+
+.ps-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 28px;
+  background: #fff;
+  border-bottom: 1px solid rgba(17, 24, 39, 0.06);
+}
+
+.ps-back,
+.ps-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ps-back:hover,
+.ps-link:hover { color: var(--primary-hover); }
+
+.ps-brand {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.ps-brand span { color: var(--primary); }
+
+.ps-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.ps-wrap--narrow { max-width: 820px; }
+
+.ps-label {
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.ps-title {
+  margin: 0;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--dark);
+}
+
+.ps-title span { color: var(--primary); }
+
+.ps-lead {
+  margin: 22px 0 0;
+  max-width: 640px;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.ps-body {
+  margin-top: 28px;
+  max-width: 680px;
+  font-size: 1rem;
+  color: #4B5563;
+}
+
+.ps-body p { margin: 0 0 16px; }
+
+.ps-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.ps-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.ps-cta:hover { background: var(--primary-hover); }
+
+.ps-cta--ghost {
+  background: transparent;
+  color: var(--primary);
+  border: 1.5px solid color-mix(in srgb, var(--primary) 45%, transparent);
+}
+
+.ps-cta--ghost:hover {
+  background: color-mix(in srgb, var(--primary) 8%, transparent);
+}
