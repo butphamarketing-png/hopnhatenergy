@@ -8,8 +8,8 @@ const catalog = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Danh mục đèn LED — Solar Miền Nam." />
-  <title>Danh mục đèn LED | Solar Miền Nam</title>
+  <meta name="description" content="Danh mục đèn LED — Hợp Nhất Energy." />
+  <title>Danh mục đèn LED | Hợp Nhất Energy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -53,8 +53,8 @@ const detail = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Chi tiết đèn LED — Solar Miền Nam." />
-  <title>Sản phẩm LED | Solar Miền Nam</title>
+  <meta name="description" content="Chi tiết đèn LED — Hợp Nhất Energy." />
+  <title>Sản phẩm LED | Hợp Nhất Energy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -92,8 +92,8 @@ const cartPage = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Giỏ hàng &amp; yêu cầu báo giá đèn LED — Solar Miền Nam." />
-  <title>Giỏ hàng LED — Yêu cầu báo giá | Solar Miền Nam</title>
+  <meta name="description" content="Giỏ hàng &amp; yêu cầu báo giá đèn LED — Hợp Nhất Energy." />
+  <title>Giỏ hàng LED — Yêu cầu báo giá | Hợp Nhất Energy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />

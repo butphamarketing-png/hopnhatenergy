@@ -12,30 +12,30 @@ window.SiteThemes.led = {
     accent: '#22D3EE',
   },
   meta: {
-    title: 'Đèn LED | Giải pháp chiếu sáng hiện đại | Solar Miền Nam',
+    title: 'Đèn LED | Giải pháp chiếu sáng hiện đại | Hợp Nhất Energy',
     description:
       'Giải pháp chiếu sáng LED tiết kiệm điện cho nhà xưởng, văn phòng, đường phố, khách sạn và công trình dân dụng. Tư vấn – thiết kế – thi công trọn gói.',
   },
   industryTitle: 'ĐÈN LED',
-  brand: { name: 'Solar', sub: 'Miền Nam' },
+  brand: { name: 'Hợp Nhất', sub: 'Energy' },
   brandIcon: 'bulb',
   projectMetaLabel: 'Quy mô',
   hero: {
     slides: [
       {
-        src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=3840&q=90',
+        src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=75',
         alt: 'Văn phòng hiện đại với hệ thống đèn LED panel',
       },
       {
-        src: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=3840&q=90',
+        src: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=75',
         alt: 'Nhà xưởng chiếu sáng bằng đèn LED highbay',
       },
       {
-        src: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=3840&q=90',
+        src: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=75',
         alt: 'Khách sạn – không gian sảnh chiếu sáng LED ấm áp',
       },
       {
-        src: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=3840&q=90',
+        src: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1600&q=75',
         alt: 'Đường phố về đêm với đèn LED đường',
       },
     ],
@@ -50,12 +50,12 @@ window.SiteThemes.led = {
     label: 'VỀ CHÚNG TÔI',
     titleLines: ['CHIẾU SÁNG THÔNG MINH CHO ', 'MỌI CÔNG TRÌNH'],
     titleAccentIndex: 1,
-    desc: 'Với kinh nghiệm triển khai chiếu sáng LED cho nhà xưởng, văn phòng và đô thị, Solar Miền Nam mang đến giải pháp tiết kiệm điện, bền bỉ và tối ưu chi phí vận hành.',
+    desc: 'Với kinh nghiệm triển khai chiếu sáng LED cho nhà xưởng, văn phòng và đô thị, Hợp Nhất Energy mang đến giải pháp tiết kiệm điện, bền bỉ và tối ưu chi phí vận hành.',
     highlight: 'Chúng tôi cam kết đồng hành cùng khách hàng từ tư vấn, thiết kế đến thi công và bảo trì — nâng tầm không gian và hiệu quả năng lượng.',
     image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=90',
     imageAlt: 'Không gian nội thất hiện đại với hệ thống đèn LED',
     bg: {
-      src: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=3840&q=90',
+      src: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=75',
       overlay: 0.96,
       tone: 'sky',
       pattern: 'dots-circuit',
@@ -71,7 +71,7 @@ window.SiteThemes.led = {
     desc: '',
     catalogHref: 'san-pham/',
     bg: {
-      src: 'https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=3840&q=90',
+      src: 'https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=1600&q=75',
       overlay: 0.9,
       tone: 'cream',
       pattern: 'cell',
@@ -243,7 +243,7 @@ window.SiteThemes.led = {
     desc: '',
     catalogHref: 'du-an/',
     bg: {
-      src: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=3840&q=90',
+      src: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1600&q=75',
       overlay: 0.9,
       tone: 'light',
       pattern: 'energy',
@@ -347,7 +347,7 @@ window.SiteThemes.led = {
     desc: 'ĐỒNG HÀNH CÙNG BẠN TỪ KHÂU TƯ VẤN ĐẾN BẢO TRÌ HỆ THỐNG',
     catalogHref: 'dich-vu/',
     bg: {
-      src: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=3840&q=90',
+      src: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=75',
       overlay: 0.78,
       tone: 'mist-white',
       pattern: 'blueprint',
@@ -423,7 +423,7 @@ window.SiteThemes.led = {
     titleAccent: 'NÓI GÌ',
     titleAfter: ' VỀ CHÚNG TÔI',
     bg: {
-      src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=3840&q=90',
+      src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=75',
       overlay: 0.88,
       tone: 'mist-white',
       pattern: 'blueprint',
@@ -478,7 +478,7 @@ window.SiteThemes.led = {
     desc: 'Cập nhật xu hướng, kiến thức và giải pháp chiếu sáng mới nhất',
     catalogHref: 'tin-tuc/',
     bg: {
-      src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=3840&q=90',
+      src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=75',
       overlay: 0.86,
       tone: 'mist-white',
       pattern: 'blueprint',
@@ -570,12 +570,12 @@ window.SiteThemes.led = {
     label: 'LIÊN HỆ',
     title: ['SẴN SÀNG ĐỒNG HÀNH', 'CÙNG DỰ ÁN CỦA BẠN'],
     desc: 'Để lại thông tin để được khảo sát miễn phí và tư vấn giải pháp đèn LED tối ưu chi phí vận hành.',
-    bg: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=3840&q=90',
+    bg: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1600&q=75',
     phone: '0938 961 012',
     phoneTel: '0938961012',
-    email: 'led@solarmiennam.vn',
+    email: 'led@hopnhatsolar.vn',
     address: 'Số 12 Nguyễn Văn Linh, Quận 7, TP. Hồ Chí Minh',
-    website: 'www.solarmiennam.vn',
+    website: 'www.hopnhatsolar.vn',
     zalo: 'https://zalo.me/0938961012',
     hours: 'Thứ 2 – Thứ 7: 8:00 – 17:30',
     benefits: [
@@ -593,15 +593,15 @@ window.SiteThemes.led = {
       title: 'ĐĂNG KÝ NHẬN TƯ VẤN',
       projectTypes: ['Nhà xưởng', 'Văn phòng', 'Khách sạn', 'Đường phố', 'Dân dụng', 'Khác'],
       needs: ['Đèn nhà xưởng', 'Đèn đường', 'Đèn pha', 'Panel / âm trần', 'Nâng cấp LED', 'Khảo sát'],
-      consent: 'Tôi đồng ý để Solar Miền Nam liên hệ tư vấn.',
+      consent: 'Tôi đồng ý để Hợp Nhất Energy liên hệ tư vấn.',
       submit: 'GỬI YÊU CẦU TƯ VẤN',
       successTitle: 'Cảm ơn Quý khách.',
-      successDesc: 'Solar Miền Nam sẽ liên hệ trong thời gian sớm nhất.',
+      successDesc: 'Hợp Nhất Energy sẽ liên hệ trong thời gian sớm nhất.',
     },
   },
   footer: {
     about:
-      'Solar Miền Nam cung cấp giải pháp chiếu sáng LED chuyên biệt cho nhà xưởng, khu công nghiệp, đường phố, khách sạn, trường học và trung tâm thương mại.',
+      'Hợp Nhất Energy cung cấp giải pháp chiếu sáng LED chuyên biệt cho nhà xưởng, khu công nghiệp, đường phố, khách sạn, trường học và trung tâm thương mại.',
     productLinks: [
       { label: 'Đèn LED Panel', href: 'san-pham/den-led-panel-48w/' },
       { label: 'Đèn LED Âm Trần', href: 'san-pham/den-led-am-tran-12w/' },

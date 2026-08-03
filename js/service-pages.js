@@ -67,7 +67,7 @@ window.SolarServicePages = (() => {
       return;
     }
 
-    document.title = `${item.title} | Solar Miền Nam`;
+    document.title = `${item.title} | Hợp Nhất Energy`;
 
     const process = (item.process || [])
       .map((p, i) => `
@@ -101,7 +101,7 @@ window.SolarServicePages = (() => {
 
       <section class="sv-section">
         <h2 class="sv-section__title">Nội dung dịch vụ</h2>
-        <p class="sv-section__text">${esc(item.text || '')} Đội ngũ kỹ thuật Solar Miền Nam thực hiện theo quy trình chuẩn, đảm bảo chất lượng và tiến độ cho từng công trình.</p>
+        <p class="sv-section__text">${esc(item.text || '')} Đội ngũ kỹ thuật Hợp Nhất Energy thực hiện theo quy trình chuẩn, đảm bảo chất lượng và tiến độ cho từng công trình.</p>
       </section>
 
       ${process ? `
@@ -123,7 +123,7 @@ window.SolarServicePages = (() => {
 
       <section class="sv-cta">
         <h2 class="sv-cta__title">Cần tư vấn về ${esc(item.title.toLowerCase())}?</h2>
-        <p class="sv-cta__desc">Liên hệ Solar Miền Nam để được khảo sát và báo giá miễn phí.</p>
+        <p class="sv-cta__desc">Liên hệ Hợp Nhất Energy để được khảo sát và báo giá miễn phí.</p>
         <div class="sv-cta__actions">
           <a class="sv-btn sv-btn--primary" href="${esc(zalo)}" target="_blank" rel="noopener noreferrer">Nhận tư vấn Zalo</a>
           <a class="sv-btn sv-btn--ghost" href="tel:${esc(phone)}">Gọi ngay</a>

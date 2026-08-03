@@ -65,7 +65,7 @@ window.SolarProjectPages = (() => {
       return;
     }
 
-    document.title = `${project.title} | Solar Miền Nam`;
+    document.title = `${project.title} | Hợp Nhất Energy`;
 
     const gallery = (project.gallery || [project.image]).filter(Boolean).map((src) =>
       `<figure class="pj-gallery__item"><img src="${esc(src)}" alt="${esc(project.title)}" loading="lazy" /></figure>`
@@ -111,7 +111,7 @@ window.SolarProjectPages = (() => {
 
         <section class="pj-article__section">
           <h2 class="pj-h2">Tổng quan dự án</h2>
-          <p class="pj-article__lead">${esc(project.summary || 'Dự án được Solar Miền Nam khảo sát, thiết kế và thi công theo tiêu chuẩn kỹ thuật.')}</p>
+          <p class="pj-article__lead">${esc(project.summary || 'Dự án được Hợp Nhất Energy khảo sát, thiết kế và thi công theo tiêu chuẩn kỹ thuật.')}</p>
           ${project.content ? `<div class="pj-article__content">${[].concat(project.content).map((p) => `<p>${esc(p)}</p>`).join('')}</div>` : `
           <div class="pj-article__content">
             <p>Công trình <strong>${esc(project.title)}</strong> tại <strong>${esc(project.place || 'khu vực triển khai')}</strong>
@@ -132,7 +132,7 @@ window.SolarProjectPages = (() => {
 
         <div class="pj-cta-block">
           <h2>Bạn muốn triển khai dự án tương tự?</h2>
-          <p>Đội ngũ Solar Miền Nam sẵn sàng khảo sát và tư vấn giải pháp phù hợp.</p>
+          <p>Đội ngũ Hợp Nhất Energy sẵn sàng khảo sát và tư vấn giải pháp phù hợp.</p>
           <a class="pj-cta" href="${esc(zalo)}" target="_blank" rel="noopener noreferrer">Nhận tư vấn</a>
         </div>
       </div>`;

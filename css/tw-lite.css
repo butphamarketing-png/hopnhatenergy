@@ -1,0 +1,45 @@
+/**
+ * Minimal utilities replacing Tailwind CDN on home pages only.
+ * Keeps layout helpers used by js/render-page.js header markup.
+ */
+.font-sans { font-family: var(--font-sans, "Be Vietnam Pro", system-ui, sans-serif); }
+.text-white { color: #fff; }
+.antialiased { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.bg-dark { background-color: var(--dark, #111827); }
+.text-primary { color: var(--primary); }
+.bg-primary { background-color: var(--primary); }
+
+.fixed { position: fixed; }
+.top-0 { top: 0; }
+.left-0 { left: 0; }
+.right-0 { right: 0; }
+.z-50 { z-index: 50; }
+
+.flex { display: flex; }
+.hidden { display: none; }
+.shrink-0 { flex-shrink: 0; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.gap-2\.5 { gap: 0.625rem; }
+.gap-3 { gap: 0.75rem; }
+.gap-3\.5 { gap: 0.875rem; }
+.gap-4 { gap: 1rem; }
+
+.mx-auto { margin-left: auto; margin-right: auto; }
+.max-w-\[1600px\] { max-width: 1600px; }
+.px-5 { padding-left: 1.25rem; padding-right: 1.25rem; }
+.h-10 { height: 2.5rem; }
+.leading-tight { line-height: 1.25; }
+.rounded-full { border-radius: 9999px; }
+.border { border-width: 1px; border-style: solid; }
+.border-white\/30 { border-color: rgba(255, 255, 255, 0.3); }
+
+@media (min-width: 640px) {
+  .sm\:flex { display: flex; }
+}
+
+@media (min-width: 1024px) {
+  .lg\:hidden { display: none; }
+  .lg\:px-10 { padding-left: 2.5rem; padding-right: 2.5rem; }
+  .lg\:gap-5 { gap: 1.25rem; }
+}

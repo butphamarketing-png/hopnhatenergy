@@ -37,7 +37,7 @@ write(path.join(root, 'dich-vu', 'index.html'), `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dịch vụ chiếu sáng LED | Solar Miền Nam</title>
+  <title>Dịch vụ chiếu sáng LED | Hợp Nhất Energy</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script src="../../js/themes/led.js"></script>
   <link rel="stylesheet" href="../../css/tokens.css" />
@@ -65,7 +65,7 @@ const svcDetail = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dịch vụ LED | Solar Miền Nam</title>
+  <title>Dịch vụ LED | Hợp Nhất Energy</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script src="../../../js/themes/led.js"></script>
   <link rel="stylesheet" href="../../../css/tokens.css" />
@@ -92,7 +92,7 @@ write(path.join(root, 'tin-tuc', 'index.html'), `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tin tức chiếu sáng LED | Solar Miền Nam</title>
+  <title>Tin tức chiếu sáng LED | Hợp Nhất Energy</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script src="../../js/themes/led.js"></script>
   <link rel="stylesheet" href="../../css/tokens.css" />
@@ -119,7 +119,7 @@ const newsDetail = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tin tức LED | Solar Miền Nam</title>
+  <title>Tin tức LED | Hợp Nhất Energy</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script src="../../../js/themes/led.js"></script>
   <link rel="stylesheet" href="../../../css/tokens.css" />
@@ -144,7 +144,7 @@ write(path.join(root, 'du-an', 'index.html'), `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dự án chiếu sáng LED | Solar Miền Nam</title>
+  <title>Dự án chiếu sáng LED | Hợp Nhất Energy</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script src="../../js/themes/led.js"></script>
   <link rel="stylesheet" href="../../css/tokens.css" />
@@ -171,7 +171,7 @@ const projDetail = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dự án LED | Solar Miền Nam</title>
+  <title>Dự án LED | Hợp Nhất Energy</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script src="../../../js/themes/led.js"></script>
   <link rel="stylesheet" href="../../../css/tokens.css" />

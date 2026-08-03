@@ -275,7 +275,7 @@ window.SolarProductPages = (() => {
     const product = items().find((p) => p.slug === slug);
     const c = contact();
     const brand = (theme() && theme().brand) || {};
-    const brandLabel = [brand.name, brand.sub].filter(Boolean).join(' ') || 'Solar Miền Nam';
+    const brandLabel = [brand.name, brand.sub].filter(Boolean).join(' ') || 'Hợp Nhất Energy';
 
     if (!product) {
       root.innerHTML = `<p class="pp-empty">Không tìm thấy sản phẩm. <a href="../">Quay lại danh mục</a></p>`;

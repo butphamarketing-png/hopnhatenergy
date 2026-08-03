@@ -84,7 +84,7 @@ window.SolarNewsPages = (() => {
       return;
     }
 
-    document.title = `${item.title} | Solar Miền Nam`;
+    document.title = `${item.title} | Hợp Nhất Energy`;
 
     const paragraphs = (item.content || [item.excerpt || ''])
       .filter(Boolean)
@@ -144,7 +144,7 @@ window.SolarNewsPages = (() => {
 
         <section class="nw-cta">
           <h2>Bạn cần tư vấn giải pháp điện mặt trời?</h2>
-          <p>Liên hệ Solar Miền Nam để được khảo sát và báo giá miễn phí.</p>
+          <p>Liên hệ Hợp Nhất Energy để được khảo sát và báo giá miễn phí.</p>
           <div class="nw-cta__actions">
             <a class="nw-btn nw-btn--primary" href="${esc(zalo)}" target="_blank" rel="noopener noreferrer">Nhận tư vấn Zalo</a>
             <a class="nw-btn nw-btn--ghost" href="tel:${esc(phone)}">Gọi ngay</a>

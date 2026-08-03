@@ -136,7 +136,7 @@ const PageRender = (() => {
 
     const slides = theme.hero.slides.map((s, i) => `
       <div class="hero-slide${i === 0 ? ' is-active' : ''}" data-index="${i}">
-        <img src="${esc(s.src)}" alt="${esc(s.alt)}" class="hero-slide__img"${i === 0 ? ' fetchpriority="high"' : ''} />
+        <img src="${esc(s.src)}" alt="${esc(s.alt)}" class="hero-slide__img"${i === 0 ? ' fetchpriority="high" decoding="async"' : ' loading="lazy" decoding="async"'} />
       </div>`).join('');
 
     const heroTitle = theme.hero.title.map((line, i) => {
@@ -466,7 +466,7 @@ const PageRender = (() => {
   <a class="skip-link" href="#fullpage">Bỏ qua điều hướng</a>
   <header id="site-header" class="site-header fixed top-0 left-0 right-0 z-50">
     <div class="header-inner mx-auto max-w-[1600px] px-5 lg:px-10">
-      <a href="../" class="header-logo flex shrink-0 items-center gap-3.5" aria-label="Solar Miền Nam - Về cổng chọn lĩnh vực">
+      <a href="../" class="header-logo flex shrink-0 items-center gap-3.5" aria-label="Hợp Nhất Energy - Về cổng chọn lĩnh vực">
         <span class="logo-mark flex items-center justify-center rounded-full bg-primary">${brandIcon}</span>
         <span class="logo-text leading-tight">
           <span class="logo-text__main">${esc(theme.brand.name)}</span>
@@ -546,7 +546,7 @@ const PageRender = (() => {
           ${aboutCta}
         </div>
         <div class="about-media">
-          <img src="${esc(theme.about.image)}" alt="${esc(theme.about.imageAlt)}" class="about-media__img" />
+          <img src="${esc(theme.about.image)}" alt="${esc(theme.about.imageAlt)}" class="about-media__img" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
@@ -751,7 +751,7 @@ const PageRender = (() => {
               <div class="contact-form__field contact-form__field--full contact-form__consent">
                 <label>
                   <input type="checkbox" name="consent" required />
-                  <span>${esc((c.form && c.form.consent) || 'Tôi đồng ý để Solar Miền Nam liên hệ tư vấn.')}</span>
+                  <span>${esc((c.form && c.form.consent) || 'Tôi đồng ý để Hợp Nhất Energy liên hệ tư vấn.')}</span>
                 </label>
                 <p class="contact-form__error" data-error-for="consent"></p>
               </div>
@@ -760,7 +760,7 @@ const PageRender = (() => {
           </form>
           <div class="contact-success" data-contact-success hidden>
             <h3 class="contact-success__title">${esc((c.form && c.form.successTitle) || 'Cảm ơn Quý khách.')}</h3>
-            <p class="contact-success__desc">${esc((c.form && c.form.successDesc) || 'Solar Miền Nam sẽ liên hệ trong thời gian sớm nhất.')}</p>
+            <p class="contact-success__desc">${esc((c.form && c.form.successDesc) || 'Hợp Nhất Energy sẽ liên hệ trong thời gian sớm nhất.')}</p>
           </div>
         </div>
       </div>
@@ -774,7 +774,7 @@ const PageRender = (() => {
       <div class="site-footer__inner">
         <div class="site-footer__grid">
           <div class="footer-col footer-col--brand">
-            <a href="../" class="footer-brand" aria-label="Solar Miền Nam">
+            <a href="../" class="footer-brand" aria-label="Hợp Nhất Energy">
               <span class="footer-brand__mark" aria-hidden="true">${brandIcon.replace('width="34"', 'width="28"').replace('height="34"', 'height="28"')}</span>
               <span class="footer-brand__text">
                 <span class="footer-brand__main">${esc(theme.brand.name)}</span>
@@ -805,7 +805,7 @@ const PageRender = (() => {
           </div>
         </div>
         <div class="site-footer__bottom">
-          <p class="footer-copy">© 2026 Solar Miền Nam. All Rights Reserved.</p>
+          <p class="footer-copy">© 2026 Hợp Nhất Energy. All Rights Reserved.</p>
           <p class="footer-credit">Thiết kế &amp; Phát triển bởi <span>Bứt Phá Marketing</span></p>
         </div>
       </div>

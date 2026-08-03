@@ -1,5 +1,5 @@
 /**
- * Solar Miền Nam — Lead Generation Cart
+ * Hợp Nhất Energy — Lead Generation Cart
  * Shopping experience → Gửi yêu cầu báo giá (không thanh toán online)
  */
 window.SolarCart = (() => {
