@@ -177,8 +177,8 @@ a {
   height: 48px;
   padding: 0 28px;
   border-radius: 999px;
-  background: var(--accent-gold);
-  color: var(--darker);
+  background: var(--accent-gold, #E8B923);
+  color: var(--darker, #0B1220);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.12em;
