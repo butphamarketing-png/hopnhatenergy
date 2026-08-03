@@ -310,7 +310,7 @@ const PageRender = (() => {
       </li>`;
     }).join('');
 
-    const productCats = (theme.products.categories || []).map((c, i) =>
+    const productCatsHtml = (theme.products.categories || []).map((c, i) =>
       `<button type="button" class="products-cat${i === 0 ? ' is-active' : ''}" data-category="${esc(c.id)}">${esc(c.label)}</button>`
     ).join('');
 
@@ -557,7 +557,7 @@ const PageRender = (() => {
         <header class="products-head">
           <h2 class="products-title"><span class="products-title__a">SẢN</span> <span class="products-title__b">PHẨM</span></h2>
           <span class="products-ornament" aria-hidden="true"></span>
-          ${productCats ? `<div class="products-cats" role="tablist" aria-label="Danh mục sản phẩm">${productCats}</div>` : ''}
+          ${productCatsHtml ? `<div class="products-cats" role="tablist" aria-label="Danh mục sản phẩm">${productCatsHtml}</div>` : ''}
         </header>
         <ul class="products-grid" id="products-grid">${products}</ul>
         <div class="products-foot">
